@@ -1,0 +1,48 @@
+// Pruebas del ingreso con Google Workspace (@uao.edu.co) y de UAO Virtual (Moodle) con servidores simulados.
+// No contactan a Google ni a la UAO.
+const http=require('http'),{spawn}=require('child_process'),os=require('os'),path=require('path'),fs=require('fs');
+const PORT=3056,MOCK=3057,B='http://localhost:'+PORT,tmp=path.join(os.tmpdir(),'uao-sso-'+Date.now()+'.json'),KEY='a1b2c3d4e5f60718293a4b5c6d7e8f90';
+let pass=0,fail=0,nonce='',cl={email:'ana@uao.edu.co',hd:'uao.edu.co',email_verified:true};const ok=(c,m)=>{c?pass++:(fail++,console.log('FALLA:',m))};
+const jwt=c=>'x.'+Buffer.from(JSON.stringify(c)).toString('base64url')+'.y',J=(m,b,t)=>({method:m,headers:{'Content-Type':'application/json',...(t?{Authorization:'Bearer '+t}:{})},body:b?JSON.stringify(b):undefined});
+const soon=Math.floor(Date.now()/1000)+3600;
+const mock=http.createServer((req,res)=>{let b='';req.on('data',d=>b+=d);req.on('end',()=>{const p=new URLSearchParams(b);res.setHeader('Content-Type','application/json');
+if(req.url.startsWith('/token'))return res.end(JSON.stringify({id_token:jwt({aud:'cid',iss:'https://accounts.google.com',nonce,exp:Math.floor(Date.now()/1000)+300,name:'Ana Pérez',...cl})}));
+const f=p.get('wsfunction'),good=p.get('wstoken')===KEY;if(!good)return res.end(JSON.stringify({exception:'moodle_exception',errorcode:'invalidtoken'}));
+if(f==='core_webservice_get_site_info')return res.end(JSON.stringify({userid:77}));
+if(f==='core_enrol_get_users_courses')return res.end(JSON.stringify([{id:1,fullname:'Estructuras de Datos',progress:40},{id:2,fullname:'Cálculo II',progress:null}]));
+if(f==='gradereport_user_get_grade_items')return res.end(JSON.stringify({usergrades:[{gradeitems:[{itemtype:'mod',itemname:'Parcial 1',gradeformatted:'4,5',percentageformatted:'90 %'},{itemtype:'course',gradeformatted:'4,2'}]}]}));
+if(f==='core_calendar_get_action_events_by_timesort')return res.end(JSON.stringify({events:[{name:'Entrega taller 3',timesort:soon,course:{fullname:'Cálculo II'},url:'http://localhost:'+MOCK+'/mod/assign/view.php?id=9'}]}));
+res.end('{}')})});
+const get=u=>fetch(B+u,{redirect:'manual'});
+(async()=>{await new Promise(r=>mock.listen(MOCK,r));
+const srv=spawn('node',['server.js'],{env:{...process.env,PORT,DATA_FILE:tmp,GOOGLE_CLIENT_ID:'cid',GOOGLE_CLIENT_SECRET:'sec',GOOGLE_REDIRECT_URI:B+'/api/auth/google/callback',GOOGLE_AUTH_URL:'http://localhost:'+MOCK+'/auth',GOOGLE_TOKEN_URL:'http://localhost:'+MOCK+'/token',MOODLE_URL:'http://localhost:'+MOCK}});
+await new Promise(r=>setTimeout(r,1200));
+try{
+const cfg=await (await get('/api/config')).json();ok(cfg.sso&&cfg.lms&&!cfg.demo,'config: Google y UAO Virtual activos, sin demo');
+ok((await fetch(B+'/api/auth/login',J('POST',{email:'estudiante@demo.uao',password:'demo1234'}))).status===400,'login con contraseña y cuentas demo deshabilitados');
+ok((await fetch(B+'/api/auth/register',J('POST',{n:'X',email:'x@uao.edu.co',password:'12345678'}))).status===400,'registro con contraseña deshabilitado con Google');
+const flow=async()=>{const a=await get('/api/auth/google'),loc=new URL(a.headers.get('location'));nonce=loc.searchParams.get('nonce');
+ok(loc.searchParams.get('code_challenge_method')==='S256'&&loc.searchParams.get('hd')==='uao.edu.co','redirige a Google con PKCE y hd=uao.edu.co');
+return get('/api/auth/google/callback?code=abc&state='+loc.searchParams.get('state'))};
+let r=await flow(),l=r.headers.get('location')||'';ok(l.startsWith('/#sso='),'callback entrega código de un solo uso');
+const code=l.slice(6),ex=await fetch(B+'/api/auth/exchange',J('POST',{code})).then(r=>r.json());ok(!!ex.token,'se canjea el código por sesión');
+ok((await fetch(B+'/api/auth/exchange',J('POST',{code}))).status===400,'el código no se puede reutilizar');
+const T=ex.token,me=async()=>(await (await fetch(B+'/api/bootstrap',{headers:{Authorization:'Bearer '+T}})).json()).me;
+let m=await me();ok(m.n==='Ana Pérez'&&m.rol==='Estudiante'&&!m.mc,'usuario creado desde Google como Estudiante, sin UAO Virtual aún');
+ok((await fetch(B+'/api/me/virtual',J('GET',null,T))).status===200&&(await (await fetch(B+'/api/me/virtual',{headers:{Authorization:'Bearer '+T}})).json()).connected===false,'sin llave no hay datos de UAO Virtual');
+ok((await fetch(B+'/api/me/moodle',J('POST',{token:'no es una llave'},T))).status===400,'llave con formato inválido rechazada');
+ok((await fetch(B+'/api/me/moodle',J('POST',{token:'f'.repeat(32)},T))).status===502,'llave que UAO Virtual no acepta rechazada');
+ok((await fetch(B+'/api/me/moodle',J('POST',{token:KEY},T))).status===200,'llave válida conecta UAO Virtual');
+m=await me();ok(m.mc&&m.cursos.join()==='Estructuras de Datos,Cálculo II','cursos tomados de UAO Virtual');
+const v=await (await fetch(B+'/api/me/virtual',{headers:{Authorization:'Bearer '+T}})).json();
+ok(v.connected&&v.cursos[0].total==='4,2'&&v.cursos[0].items[0].n==='Parcial 1'&&v.cursos[0].progreso===40,'notas por curso leídas');
+ok(v.proximas.length===1&&v.proximas[0].n==='Entrega taller 3','próximas entregas leídas');
+ok(!fs.readFileSync(tmp,'utf8').includes(KEY),'la llave no se guarda en texto plano');
+ok((await fetch(B+'/api/me/courses',J('PUT',{cursos:['Cálculo II']},T))).status===403,'no se editan cursos a mano cuando UAO Virtual los administra');
+ok((await fetch(B+'/api/me/sync',J('POST',null,T))).status===200,'sincronización manual');
+ok((await fetch(B+'/api/me/moodle',J('DELETE',null,T))).status===200&&!(await me()).mc,'desconectar borra la llave');
+cl={email:'alguien@gmail.com',hd:undefined,email_verified:true};r=await flow();ok((r.headers.get('location')||'').startsWith('/#ssoerror='),'cuenta fuera de @uao.edu.co rechazada');
+cl={email:'falso@gmail.com',hd:'uao.edu.co',email_verified:true};r=await flow();ok((r.headers.get('location')||'').startsWith('/#ssoerror='),'correo ajeno aunque diga hd rechazado');
+cl={email:'ana@uao.edu.co',hd:'uao.edu.co',email_verified:false};r=await flow();ok((r.headers.get('location')||'').startsWith('/#ssoerror='),'correo no verificado rechazado');
+const bad=await get('/api/auth/google/callback?code=abc&state=falso');ok((bad.headers.get('location')||'').startsWith('/#ssoerror='),'state inválido rechazado');
+}catch(e){fail++;console.log('ERROR',e)}srv.kill();mock.close();fs.rmSync(tmp,{force:true});console.log(`Pruebas Google/UAO Virtual: ${pass} correctas, ${fail} fallidas`);process.exit(fail?1:0)})();
