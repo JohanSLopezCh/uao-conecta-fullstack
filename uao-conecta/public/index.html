@@ -17,8 +17,10 @@ h1,h2,h3,.logo{font-family:var(--d);letter-spacing:-.01em;color:var(--strong)}
 h1{font-size:clamp(26px,5vw,38px);line-height:1.1;margin:0 0 6px;font-weight:700}
 h2{font-size:20px;margin:30px 0 12px;font-weight:700}
 h2.sec{display:flex;align-items:center;gap:10px}h2.sec:before{content:"";width:6px;height:22px;background:var(--red2);border-radius:2px}
+h2.sec small{font:700 13px var(--c);color:var(--mut)}
 h3{margin:0 0 6px;font-weight:600}p.s{color:var(--mut);margin:0 0 18px}
 a{color:var(--red)}code{background:var(--soft);padding:1px 6px;border-radius:6px}
+mark{background:color-mix(in srgb,var(--red2) 22%,transparent);color:inherit;border-radius:3px;padding:0 1px}
 .kick{font-family:var(--c);text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:700;color:rgba(255,255,255,.9)}
 .srch{display:flex;gap:8px;align-items:center;font-family:var(--c);text-transform:uppercase;letter-spacing:.06em;font-size:14px;margin:20px 0 10px;color:var(--strong)}
 .sdot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px;flex:none}
@@ -63,7 +65,7 @@ label{font-weight:700;font-size:14px}
 .hero:after{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:6px 70px 6px 70px;background:rgba(255,255,255,.12)}
 .hero h1{color:var(--onhero)}.hero .mut{color:var(--onhero);opacity:.88}
 .cc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.cch{background:var(--c);color:#fff;padding:16px 18px 14px;position:relative;overflow:hidden;min-height:108px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px}
+.cch{background:var(--cc,#363636);color:#fff;padding:16px 18px 14px;position:relative;overflow:hidden;min-height:108px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px}
 .cch:after{content:"";position:absolute;right:-26px;top:-26px;width:100px;height:100px;border-radius:3px 50px 3px 50px;background:rgba(255,255,255,.14)}
 .cch b{font:700 19px/1.2 var(--d);color:#fff;position:relative}.cch .cod{font:700 13px var(--c);letter-spacing:.06em;color:rgba(255,255,255,.9);position:relative}
 .cch .kick{position:absolute;top:12px;left:18px}
@@ -80,39 +82,57 @@ th{font:700 12px var(--c);text-transform:uppercase;letter-spacing:.05em;color:va
 .sk{height:70px;border-radius:14px;background:linear-gradient(90deg,var(--soft),var(--card),var(--soft));background-size:200% 100%;animation:sk 1s infinite;margin-bottom:12px}@keyframes sk{to{background-position:-200% 0}}
 #toast{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));background:#363636;color:#fff;border:1px solid #7a7a7a;padding:12px 20px;border-radius:12px;z-index:20;max-width:92vw;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .auth{max-width:420px;margin:6vh auto 0}
-
-.lg{display:inline-flex}
-.lg img{display:block;width:104px;height:104px;flex:none}.lg .fb{font:800 24px var(--d);color:#161616}.lg .fb b{color:#c4161c}.lg [hidden]{display:none}
-.hero2{display:flex;gap:28px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px;margin-bottom:18px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-
-.hero2 .ht{flex:1;min-width:240px;padding-left:24px;border-left:4px solid var(--red2)}
-.hero2 h1{margin:2px 0 8px;font-size:clamp(28px,4.5vw,40px)}.hero2 p{margin:0;max-width:52ch}
-@media(max-width:620px){.hero2{padding:22px}.hero2 .ht{padding:16px 0 0;border-left:0;border-top:4px solid var(--red2)}}
-.authwrap{min-height:calc(100vh - 80px);display:grid;place-items:center;padding:12px 0}
-.auth2{width:100%;max-width:440px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:36px 30px 30px;box-shadow:0 18px 50px rgba(0,0,0,.10);border-top:6px solid var(--red2)}
-.auth2 h1{font-size:28px;margin:22px 0 6px}.auth2 .s{margin:0}.auth2 label,.auth2 .mut{text-align:left;display:block}
-
-.logo img{width:48px;height:48px;flex:none;display:block}
-@media(min-width:800px){.top .logo{visibility:hidden}}
-.af{--bg:#faf6f1;--card:#fff;--ink:#161616;--strong:#161616;--mut:#5c5c5c;--line:#e6ded4;--red:#c4161c;--red2:#e30613;position:fixed;inset:0;z-index:60;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);background:var(--bg);color:var(--ink);color-scheme:light;overflow:auto}
-.af-l{background:#151515;color:#fff;padding:clamp(28px,5vw,72px);display:flex;flex-direction:column;justify-content:space-between;gap:32px;position:relative;overflow:hidden}
-.af-l::after{content:"";position:absolute;right:-170px;bottom:-170px;width:480px;height:480px;border-radius:50%;border:60px solid #e30613;opacity:.2;pointer-events:none}
-.af-l>*{position:relative;z-index:1}
-.af-l img{width:128px;height:128px;flex:none;align-self:flex-start;display:block}
-.af-l .kick{max-width:none;color:#ff4b55;font:700 12px var(--d);letter-spacing:.16em;text-transform:uppercase;margin:36px 0 0}
-.af-l h1{color:#fff;font-size:clamp(38px,5.2vw,68px);line-height:1.04;margin:14px 0 18px;letter-spacing:-.02em}
-.af-l h1 em{font-style:normal;color:#ed1d24}
-.af-l p{color:#dcdcdc;max-width:48ch;font-size:18px;line-height:1.6;margin:0}
-.pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:12px 16px;min-width:200px}
-.pill b{display:block;font-size:15px;color:#fff}.pill span{font-size:13px;color:#c8c8c8}
-.af-l q{font-style:italic;color:#d2d2d2;max-width:46ch;quotes:none}
-.af-r{display:grid;place-items:center;padding:28px}
-.af-card{width:100%;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:36px 32px;box-shadow:0 18px 50px rgba(0,0,0,.08);border-top:6px solid #e30613}
-.af-card h2{font-family:var(--d);font-size:28px;margin:0 0 6px;color:#161616}
-.af-card .s{margin:0;color:var(--mut)}
-@media(max-width:900px){.af{grid-template-columns:1fr;grid-auto-rows:min-content}.af-l{padding:24px;gap:12px}.af-l img{width:88px;height:88px}.af-l .kick{margin-top:14px}.af-l h1{font-size:34px;margin:8px 0}.af-l p{font-size:16px}.pills,.af-l q,.af-l::after{display:none}.af-r{padding:20px 16px 32px}}
-.gbtn{width:100%;min-height:48px;border-radius:999px;border:1px solid #dadce0;background:#fff;color:#3c4043;font:500 16px Roboto,Arial,sans-serif;display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;margin-top:18px}.gbtn:hover{background:#f8f9fa;box-shadow:0 1px 3px rgba(60,64,67,.3)}.gbtn:disabled{cursor:wait}
+.or{display:flex;align-items:center;gap:10px;color:var(--mut);font-size:13px;margin:14px 0}.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}
+#sr:empty{display:none}#sr{margin-top:6px}
+/* logo institucional en barra lateral */
+.side-logo{display:flex;align-items:center;gap:10px;margin:0 0 20px 4px;text-decoration:none}
+.side-logo img{width:46px;height:46px;object-fit:contain;background:#fff;border-radius:10px;padding:4px;border:1px solid var(--line)}
+.side-logo .logo{margin:0!important}
+/* modo demo */
+.prog{height:10px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 4px}.prog i{display:block;height:100%;background:var(--ok);border-radius:99px;transition:width .3s}
+.mis{border-left:5px solid var(--line)}.mis.ok{border-left-color:var(--ok)}
+.mis h3{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.mis .n{font:800 13px var(--c);background:var(--soft);border-radius:8px;padding:2px 8px}
+.formula{font:500 14px ui-monospace,Consolas,monospace;background:var(--soft);border-radius:10px;padding:10px 12px;margin:8px 0;overflow-x:auto;white-space:pre-wrap}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 10px}
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1.5px dashed var(--red);border-radius:var(--r);padding:12px 16px;margin:14px 0}
+/* ---------- pantalla de ingreso (2 columnas) ---------- */
+body.out aside,body.out nav.bot,body.out main{display:none!important}
+#auth{display:none}body.out #auth{display:grid}
+#auth{min-height:100vh;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.lg-l{background:#1c1c1c;color:#fff;position:relative;overflow:hidden;padding:clamp(32px,7vw,96px) clamp(24px,5vw,90px);display:flex;flex-direction:column;justify-content:center}
+.lg-l:after{content:"";position:absolute;width:760px;height:760px;border-radius:50%;border:110px solid rgba(196,22,28,.22);right:-330px;bottom:-470px;pointer-events:none}
+.lg-l>*{position:relative;z-index:1}
+.lg-logo{width:144px;height:140px;background:#fff;border-radius:16px;display:grid;place-items:center;padding:12px;margin-bottom:56px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.lg-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.lg-logo .tx{font:500 13px/1.1 "Roboto",Arial,sans-serif;color:#222;text-align:center}.lg-logo .tx b{display:block;font:800 17px/1.1 "Roboto",Arial,sans-serif;color:#1c1c1c;margin:2px 0}
+.lg-kick{font:700 14px var(--d);letter-spacing:.16em;text-transform:uppercase;color:#ef3b41;margin:0 0 18px}
+.lg-l h1{color:#fff;font:700 clamp(44px,6.4vw,86px)/1.02 var(--d);letter-spacing:-.02em;margin:0 0 30px}.lg-l h1 span{color:#ef2b32}
+.lg-l p.d{font-size:clamp(17px,1.5vw,23px);line-height:1.55;color:#e6e6e6;max-width:640px;margin:0 0 40px}
+.lg-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,250px));gap:14px;margin-bottom:46px}
+.lg-tile{display:block;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:20px 20px 18px;color:#fff;cursor:pointer;text-align:left;font:inherit}
+.lg-tile:hover{border-color:#ef2b32;background:rgba(239,43,50,.08)}.lg-tile b{display:block;font:700 18px "Roboto",Arial,sans-serif;margin-bottom:6px}.lg-tile span{color:#cfcfcf;font-size:15px}
+.lg-q{font-style:italic;color:#e0e0e0;font-size:19px;margin:0}
+.lg-r{background:#f8f6f3;display:grid;place-items:center;padding:32px 20px}
+.lg-card{width:100%;max-width:548px;background:#fff;border-radius:28px;border-top:7px solid #d4141b;padding:46px 40px 40px;box-shadow:0 18px 50px rgba(0,0,0,.08);color:#363636}
+.lg-card h2{font:700 34px var(--d);color:#161616;margin:0 0 10px}.lg-card h2:before{display:none}
+.lg-card .s{color:#5c5c5c;font-size:19px;margin:0 0 26px}
+.g-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:14px;min-height:60px;border:1.5px solid #dcdcdc;border-radius:999px;background:#fff;color:#2b2b2b;font:500 20px "Roboto",Arial,sans-serif;text-decoration:none;cursor:pointer}
+.g-btn:hover{border-color:#c4161c;box-shadow:0 2px 10px rgba(0,0,0,.06)}.g-btn svg{width:24px;height:24px}
+.lg-card .n{color:#5c5c5c;font-size:17px;line-height:1.6;margin:18px 0 0}.lg-card .n b{color:#222}
+.lg-card .or{color:#7a7a7a}.lg-card .or:before,.lg-card .or:after{background:#e2e2e2}
+.ex-box{margin-top:22px;border:1.5px solid #f0c4c6;background:#fff7f7;border-radius:18px;padding:18px}
+.ex-box h3{font:700 19px var(--d);color:#161616;margin:0 0 4px}.ex-box p{color:#555;font-size:15px;margin:0 0 12px}
+.cred{display:grid;grid-template-columns:auto 1fr auto;gap:8px 10px;align-items:center;background:#fff;border:1px solid #ececec;border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:15px}
+.cred span{color:#6b6b6b;font-weight:700}.cred code{font-size:15px;background:#f3f3f3;color:#161616;padding:3px 8px;border-radius:6px;word-break:break-all}
+.cp{border:1px solid #dcdcdc;background:#fff;border-radius:8px;padding:4px 10px;cursor:pointer;font:700 12px "Roboto",Arial,sans-serif;color:#363636}.cp:hover{border-color:#c4161c;color:#c4161c}
+.ex-box .inc{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 12px}.ex-box .inc .tag{background:#fff;border:1px solid #eee;color:#444}
+.demo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.demo-b{border:1.5px solid #dcdcdc;background:#fff;color:#2b2b2b;border-radius:14px;padding:12px 6px;cursor:pointer;font:700 15px "Roboto",Arial,sans-serif;display:flex;flex-direction:column;align-items:center;gap:2px}
+.demo-b small{font:400 12px "Roboto",Arial,sans-serif;color:#6b6b6b}.demo-b:hover{border-color:#c4161c;color:#c4161c}
+.lg-card code{background:#f1f1f1;color:#222}
+.lg-card details{margin-top:14px}.lg-card summary{cursor:pointer;color:#5c5c5c;font-size:14px}
+.lg-card input{background:#fff;color:#222;border-color:#dcdcdc}
+@media(max-width:980px){#auth{grid-template-columns:1fr}.lg-tiles{grid-template-columns:1fr}.lg-logo{margin-bottom:32px;width:120px;height:116px}.lg-l:after{display:none}.lg-card{padding:36px 24px 28px}}
 button:focus-visible,a:focus-visible,.chip:focus-visible{outline:3px solid var(--red);outline-offset:2px}
 @media(min-width:800px){
 aside{display:flex;flex-direction:column;gap:4px;position:fixed;left:0;top:0;bottom:0;width:236px;background:var(--card);border-right:1px solid var(--line);padding:24px 14px}
@@ -123,37 +143,46 @@ nav.bot{display:none}main{margin-left:236px;max-width:none;padding:28px 40px 60p
 </style>
 </head>
 <body>
-<aside id="side"></aside><main id="m"></main><nav class="bot" id="bot" aria-label="Navegación principal"></nav><div id="toast" role="status" aria-live="polite"></div>
+<div id="auth"></div><aside id="side"></aside><main id="m"></main><nav class="bot" id="bot" aria-label="Navegación principal"></nav><div id="toast" role="status" aria-live="polite"></div>
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const jsq=s=>esc(String(s??'').replace(/\\/g,'\\\\').replace(/'/g,"\\'")); // texto seguro dentro de onclick='...'
 const URLS={classroom:'https://classroom.google.com',moodle:'https://campus.uaovirtual.edu.co',portal:'https://uao.universitasxxi.cloud/portal'}; // ← ajusta la URL del portal si es otra
-const base=()=>({me:{n:'',rol:'Estudiante',prog:'Ingeniería Multimedia',email:'',cursos:[],portal:null,fuentes:{moodle:{conectado:false,cursos:[]},classroom:{conectado:false,cursos:[]},manual:[]}},q:[],R:[],G:[],A:[],T:[],F:[],E:[],P:[]});
-let TOKEN=localStorage.getItem('uao_t')||'',S=base(),FIL={s:'',e:'pend',q:'',p:'',rs:'',rt:''};
-const ST={'Sin respuesta':'○ Sin respuesta','En discusión':'◐ En discusión','Resuelta':'✓ Resuelta','Pendiente':'○ Pendiente','En proceso':'◐ En proceso','Completada':'✓ Completada','Aceptada':'◐ Aceptada'};
-const stc=s=>['Resuelta','Completada'].includes(s)?'ok':['Sin respuesta','Pendiente'].includes(s)?'w':'';
+const APP_V='1.3.0';
+let CFG={sso:false,demo:true,domain:'uao.edu.co',periodo:'2026-2S'};
+const base=()=>({me:{n:'',rol:'Estudiante',prog:'Ingeniería Multimedia',email:'',cursos:[],demo:false,portal:null,fuentes:{moodle:{conectado:false,cursos:[]},classroom:{conectado:false,cursos:[]},manual:[]}},q:[],R:[],G:[],A:[],T:[],F:[],E:[],P:[],catalog:[],apoyo:[],periodo:''});
+let TOKEN='';try{TOKEN=localStorage.getItem('uao_t')||''}catch{}
+let S=base(),FIL={s:'',e:'pend',q:'',p:'',rs:'',rt:''};
+const PER=()=>S.periodo||CFG.periodo||'2026-2S';
+const ST={'Sin respuesta':'○ Sin respuesta','En discusión':'◐ En discusión','Resuelta':'✓ Resuelta','Pendiente':'○ Pendiente','En proceso':'◐ En proceso','Completada':'✓ Completada','Aceptada':'◐ Aceptada','Rechazada':'✕ Rechazada','Entregada':'✓ Entregada'};
+const stc=s=>['Resuelta','Completada','Entregada'].includes(s)?'ok':['Sin respuesta','Pendiente'].includes(s)?'w':s==='Rechazada'?'bad':'';
 const bd=s=>`<span class="tag ${stc(s)}">${ST[s]||esc(s)}</span>`;
 const SRC={moodle:{t:'UAO Virtual',c:'#f98012'},classroom:{t:'Google Classroom',c:'#1e8e3e'},manual:{t:'Manual',c:'#8a8a8a'}};
 const sdot=k=>`<span class="sdot" style="background:${SRC[k]?.c||'#8a8a8a'}"></span>`;
 const COL=['#c4161c','#363636','#9b1117','#4a4a4a'],colOf=n=>COL[[...String(n)].reduce((a,c)=>a+c.charCodeAt(0),0)%COL.length];
-const nm=n=>{const p=String(n||'').split(' · ');return p.find(x=>!/^\d/.test(x))||p[p.length-1]};
+const nm=n=>{const r=String(n||''),k=(r.match(/^\s*(\d{3,})/)||[])[1];if(k){const c=(S.catalog||[]).find(m=>m.cod===k);if(c)return c.n}const p=r.split(' · ');return p.find(x=>!/^\d/.test(x))||p[p.length-1]};
+const sig=n=>{const c=(S.catalog||[]).find(m=>m.n===n);return c?.sigla?` (${c.sigla})`:''};
 const MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 const SK='<div class="sk"></div><div class="sk"></div>';
 const FOOT='<footer class="mut" style="margin-top:32px;padding-top:16px;border-top:1px solid var(--line)"><b>UAO Conecta</b> · Proyecto académico de IHC y Diseño Centrado en el Usuario · ODS 4: Educación de calidad</footer>';
 
 function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',3200)}
 function go(h){location.hash=h}
-const IC={inicio:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',cursos:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/>',dudas:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/>',entregas:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',grupo:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.5 3.2-5.5 6.5-5.5s5.9 2 6.5 5.5M16 4.8a3.4 3.4 0 0 1 0 6.4M18 14.8c2 .6 3.3 2.4 3.6 5"/>',rutas:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',bell:'<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 21h4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 3.8-6 8-6s7.2 2 8 6"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'};
+const IC={inicio:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',cursos:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/>',dudas:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/>',entregas:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',grupo:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.5 3.2-5.5 6.5-5.5s5.9 2 6.5 5.5M16 4.8a3.4 3.4 0 0 1 0 6.4M18 14.8c2 .6 3.3 2.4 3.6 5"/>',rutas:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',bell:'<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 21h4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 3.8-6 8-6s7.2 2 8 6"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',play:'<circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/>'};
 const ico=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
 const dark=()=>document.documentElement.dataset.theme==='dark';
 const themeBtn=()=>`<button class="ib" onclick="toggleTheme()" aria-pressed="${dark()}" aria-label="Cambiar tema">${ico(dark()?'sun':'moon')}</button>`;
 function toggleTheme(){const n=dark()?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('uao_theme',n)}catch{}render(1)}
 
-async function api(m,u,b){let r;try{r=await fetch('/api'+u,{method:m,headers:{'Content-Type':'application/json',...(TOKEN?{Authorization:'Bearer '+TOKEN}:{})},body:m==='GET'?undefined:JSON.stringify(b||{})})}catch{throw new Error('Error de conexión.')}
-const d=await r.json().catch(()=>({}));if(r.status===401&&TOKEN){logout();throw new Error('Sesión expirada.')}
-if(!r.ok)throw new Error(d.error||'Error');return d}
-async function load(){const r=await api('GET','/bootstrap'),b=base();S={...b,...r};S.me={...b.me,...(r.me||{})};S.me.fuentes={...b.me.fuentes,...(r.me?.fuentes||{})};
-['q','R','G','A','T','F','E','P'].forEach(k=>{if(!Array.isArray(S[k]))S[k]=[]})}
+async function api(m,u,b){let r;try{r=await fetch('/api'+u,{method:m,headers:{'Content-Type':'application/json',...(TOKEN?{Authorization:'Bearer '+TOKEN}:{})},body:m==='GET'?undefined:JSON.stringify(b||{})})}catch{throw new Error('Error de conexión con el servidor.')}
+ const d=await r.json().catch(()=>({}));if(r.status===401&&TOKEN){logout();throw new Error('Sesión expirada.')}
+ if(!r.ok)throw new Error(d.error||'Error '+r.status);return d}
+// Carga el estado del usuario (/api/bootstrap) + los datos de ejemplo públicos (/api/data)
+async function load(){const [r,d]=await Promise.all([api('GET','/bootstrap'),api('GET','/data').catch(()=>null)]);
+ const b=base();S={...b,...r};S.me={...b.me,...(r.me||{})};S.me.fuentes={...b.me.fuentes,...(r.me?.fuentes||{})};
+ if(d){if(Array.isArray(d.materias)&&d.materias.length)S.catalog=d.materias;if(Array.isArray(d.apoyo))S.apoyo=d.apoyo;if(d.periodo)S.periodo=d.periodo}
+ ['q','R','G','A','T','F','E','P','catalog','apoyo'].forEach(k=>{if(!Array.isArray(S[k]))S[k]=[]})}
 async function act(fn,msg){try{const r=await fn();const t=msg||r?.msg;if(t)toast(t);await load();render(1)}catch(e){toast(e.message)}}
 const val=id=>($(id)?.value||'').trim();
 
@@ -162,85 +191,137 @@ const day0=d=>{const x=new Date(d);x.setHours(0,0,0,0);return x};
 const dleft=due=>Math.round((day0(due)-day0(new Date()))/864e5);
 const hora=d=>new Date(d).toLocaleTimeString('es-CO',{hour:'numeric',minute:'2-digit'});
 function urg(e){if(e.st==='Entregada')return{t:'✓ Entregada',c:'ok',k:'ent'};const d=dleft(e.due);
-if(d<0)return{t:'Vencida',c:'bad',k:'venc'};if(d===0)return{t:'Vence hoy',c:'bad',k:'urg'};if(d===1)return{t:'Vence mañana',c:'bad',k:'urg'};
-if(d<=3)return{t:`Vence en ${d} días`,c:'w',k:'urg'};return{t:`En ${d} días`,c:'',k:'pend'}}
+ if(d<0)return{t:'Vencida',c:'bad',k:'venc'};if(d===0)return{t:'Vence hoy',c:'bad',k:'urg'};if(d===1)return{t:'Vence mañana',c:'bad',k:'urg'};
+ if(d<=3)return{t:`Vence en ${d} días`,c:'w',k:'urg'};return{t:`En ${d} días`,c:'',k:'pend'}}
 const pend=()=>(S.E||[]).filter(e=>e.st!=='Entregada').sort((a,b)=>new Date(a.due)-new Date(b.due));
 const urgN=()=>pend().filter(e=>['urg','venc'].includes(urg(e).k)).length;
 function allCourses(){const f=S.me?.fuentes||{},map={};
-const add=(c,k)=>{const n=nm(c.n);const e=map[n]||(map[n]={n,cod:c.cod,grp:c.grp,per:c.per,cr:c.cr,src:[]});if(k!=='manual'&&!e.src.includes(k))e.src.push(k);if(!e.cod)e.cod=c.cod;if(!e.grp)e.grp=c.grp;if(!e.cr)e.cr=c.cr};
-(f.manual||[]).forEach(c=>add(c,'manual'));(f.moodle?.cursos||[]).forEach(c=>add(c,'moodle'));(f.classroom?.cursos||[]).forEach(c=>add(c,'classroom'));
-return Object.values(map)}
+ const add=(c,k)=>{const n=nm(c.n);const e=map[n]||(map[n]={n,cod:c.cod,grp:c.grp,per:c.per,cr:c.cr,src:[],ins:true});if(k!=='manual'&&!e.src.includes(k))e.src.push(k);if(!e.cod)e.cod=c.cod;if(!e.grp)e.grp=c.grp;if(!e.cr)e.cr=c.cr};
+ (f.manual||[]).forEach(c=>add(c,'manual'));(f.moodle?.cursos||[]).forEach(c=>add(c,'moodle'));(f.classroom?.cursos||[]).forEach(c=>add(c,'classroom'));
+ return Object.values(map)}
+// Catálogo completo (todas las materias): las inscritas se marcan con sus plataformas
+function catalogCourses(){const mine=Object.fromEntries(allCourses().map(c=>[c.n,c]));
+ const out=(S.catalog||[]).map(m=>mine[m.n]?{...m,...mine[m.n],desc:m.desc,alias:m.alias,area:m.area,ins:true}:{...m,src:[],ins:false});
+ allCourses().forEach(c=>{if(!out.some(o=>o.n===c.n))out.push(c)});return out}
 const subjects=()=>[...new Set([...(S.me?.cursos||[]),...allCourses().map(c=>c.n),...(S.E||[]).map(e=>e.s)])];
+const allSubjects=()=>[...new Set([...subjects(),...(S.catalog||[]).map(c=>c.n)])];
 const opts=(l,sel)=>l.map(x=>`<option ${x===sel?'selected':''}>${esc(x)}</option>`).join('');
-const chips=(k,l)=>`<div class="tabs">${['Todas',...l].map(x=>`<button class="chip ${(x==='Todas'?!FIL[k]:FIL[k]===x)?'on':''}" data-v="${esc(x)}" onclick="setF('${k}',this.dataset.v)">${esc(x)}</button>`).join('')}</div>`;
+const chips=(k,l)=>`<div class="tabs">${['Todas',...l].map(x=>`<button class="chip ${(x==='Todas'?!FIL[k]:FIL[k]===x)?'on':''}" onclick="setF('${k}','${jsq(x)}')">${esc(x)}</button>`).join('')}</div>`;
 function setF(k,v){FIL[k]=v==='Todas'?'':v;render(1)}
 
+/* ---------- búsqueda difusa (fuzzy) sin librerías ---------- */
+const fold=s=>String(s??'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+function lev(a,b){if(a===b)return 0;if(!a.length)return b.length;if(!b.length)return a.length;let p=Array.from({length:b.length+1},(_,j)=>j);
+ for(let i=1;i<=a.length;i++){const c=[i];for(let j=1;j<=b.length;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[b.length]}
+const subseq=(t,w)=>{let i=0;for(const ch of w)if(ch===t[i])i++;return i===t.length};
+function tokScore(t,words,acr){let best=0;
+ for(const w of words){
+  if(w===t)return 3;
+  if(w.startsWith(t))best=Math.max(best,2.5);
+  else if(t.length>=3&&w.includes(t))best=Math.max(best,2);
+  else if(t.length>=4&&w.length>=3){const tol=t.length>=7?2:1,d=Math.min(lev(t,w),lev(t,w.slice(0,t.length)));if(d<=tol)best=Math.max(best,1.6-d*.4)}
+  if(!best&&t.length>=4&&t[0]===w[0]&&w.length<=t.length*2&&subseq(t,w))best=.8}
+ if(t.length>=2&&acr.some(a=>a===t))best=Math.max(best,2.8);
+ return best}
+// Devuelve una puntuación >0 si TODAS las palabras de la consulta coinciden (exacta, prefijo, typo o sigla)
+function fuzzy(q,...fields){const qt=fold(q).split(' ').filter(Boolean);if(!qt.length)return 1;
+ const flat=fields.flat(2).filter(x=>x!=null&&x!=='').map(String),words=fold(flat.join(' ')).split(' ').filter(Boolean);
+ const acr=flat.map(f=>fold(f).split(' ').filter(w=>w.length>2).map(w=>w[0]).join('')).filter(a=>a.length>=2);
+ let s=0;for(const t of qt){const v=tokScore(t,words,acr);if(!v)return 0;s+=v}return s/qt.length}
+const rank=(l,fn)=>(l||[]).map(x=>[x,fn(x)]).filter(a=>a[1]>0).sort((a,b)=>b[1]-a[1]).map(a=>a[0]);
+
 /* ---------- chrome ---------- */
-const NAV=[['inicio','inicio','Inicio'],['cursos','cursos','Cursos'],['dudas','dudas','Dudas'],['entregas','entregas','Entregas'],['grupo','grupo','Grupo'],['rutas','rutas','Apoyo']];
+const NAV=[['inicio','inicio','Inicio'],['cursos','cursos','Cursos'],['dudas','dudas','Dudas'],['entregas','entregas','Entregas'],['grupo','grupo','Grupo'],['rutas','rutas','Apoyo'],['demo','play','Demo']];
 function chrome(v){const n=NAV.map(([h,i,t])=>`<a href="#${h}" class="${v===h?'on':''}" aria-current="${v===h?'page':'false'}">${ico(i)}<span>${t}</span></a>`).join('');
-$('bot').innerHTML=n;$('side').innerHTML=`<div class="logo"><img src="/img/logo-uao.png" alt="Universidad Autónoma de Occidente"><span><b>UAO</b> Conecta</span></div>`+n}
-function topbar(){const u=urgN()+(S.N||[]).filter(n=>!n.r).length;return `<header class="top"><div class="logo"><img src="/img/logo-uao.png" alt="Universidad Autónoma de Occidente"><span><b>UAO</b> Conecta</span></div><span class="tag">${esc(S.me?.rol)}</span>${themeBtn()}<button class="ib" aria-label="Notificaciones" onclick="go('notificaciones')">${ico('bell')}${u?`<span class="dot">${u}</span>`:''}</button><button class="ib" aria-label="Perfil" onclick="go('perfil')">${ico('user')}</button></header>`}
+ $('bot').innerHTML=n;$('side').innerHTML=`<a class="side-logo" href="#inicio" aria-label="UAO Conecta - Inicio"><img src="/img/logo-uao.png" alt="Universidad Autónoma de Occidente" onerror="this.remove()"><span class="logo"><i></i><span><b>UAO</b> Conecta</span></span></a>`+n+`<a href="#buscar" class="${v==='buscar'?'on':''}">${ico('search')}<span>Buscar</span></a>`}
+function topbar(){const u=urgN();return `<header class="top"><div class="logo"><i></i><span><b>UAO</b> Conecta</span></div>${S.me?.demo?`<span class="tag w">${S.me?.email===CFG.ejemplo?.email?'Cuenta de ejemplo':'Demo'}</span>`:''}<span class="tag">${esc(S.me?.rol)}</span><button class="ib" aria-label="Buscar" onclick="go('buscar')">${ico('search')}</button>${themeBtn()}<button class="ib" aria-label="Notificaciones" onclick="go('notificaciones')">${ico('bell')}${u?`<span class="dot">${u}</span>`:''}</button><button class="ib" aria-label="Perfil" onclick="go('perfil')">${ico('user')}</button></header>`}
+const curView=()=>(location.hash.slice(1)||'inicio').split('/')[0];
 
 function render(quick){
-  if(!TOKEN){showAuth();return}
-  const h=location.hash.slice(1)||'inicio',i=h.indexOf('/'),v=i<0?h:h.slice(0,i),a=i<0?'':h.slice(i+1),view=V[v]?v:'inicio';
-  chrome(view==='asesoria'?'rutas':view);const m=$('m');
-  const draw=()=>{try{m.innerHTML=topbar()+V[view](a)+FOOT}catch(e){console.error(e);m.innerHTML=topbar()+'<div class="empty">No pudimos cargar esta pantalla.<br><br><button class="btn p" onclick="go(\'inicio\')">Ir a Inicio</button></div>'}};
-  if(quick){const y=scrollY;draw();scrollTo(0,y)}else{m.innerHTML=topbar()+SK;setTimeout(()=>{if(!TOKEN)return;draw();scrollTo(0,0)},150)}
+ if(!TOKEN){showAuth();return}
+ document.body.classList.remove('out');$('auth').innerHTML='';
+ const h=location.hash.slice(1)||'inicio',i=h.indexOf('/'),v=i<0?h:h.slice(0,i),a=i<0?'':h.slice(i+1),view=V[v]?v:'inicio';
+ chrome(view==='asesoria'?'rutas':view==='duda'?'dudas':view);const m=$('m');
+ const draw=()=>{try{m.innerHTML=topbar()+V[view](a)+FOOT}catch(e){console.error(e);m.innerHTML=topbar()+'<div class="empty">No pudimos cargar esta pantalla.<br><br><button class="btn p" onclick="go(\'inicio\')">Ir a Inicio</button></div>'}
+  if(view==='buscar'){const g=$('gq');if(g&&document.activeElement!==g){g.focus();const L=g.value.length;try{g.setSelectionRange(L,L)}catch{}}}};
+ if(quick){const y=scrollY;draw();scrollTo(0,y)}else{m.innerHTML=topbar()+SK;setTimeout(()=>{if(!TOKEN)return;draw();scrollTo(0,0)},150)}
 }
 addEventListener('hashchange',()=>render());
 
 /* ---------- componentes ---------- */
-const sbox=(v='')=>`<input class="big" id="gq" value="${esc(v)}" aria-label="Buscar" placeholder="Buscar una asignatura, duda, recurso..." onkeydown="if(event.key=='Enter')go('buscar/'+encodeURIComponent(this.value))">`;
+const sbox=(v='')=>`<input class="big" id="gq" type="search" autocomplete="off" value="${esc(v)}" aria-label="Buscar" aria-controls="sr" placeholder="Busca materias, notas, monitores, recursos… (ej. ihc, calclo, poo)" oninput="liveQ(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();if(curView()!=='buscar')go('buscar/'+encodeURIComponent(this.value))}">`;
 const qcard=q=>`<div class="card"><div class="row sp"><b class="lk" onclick="go('dudas/${q.id}')">${esc(q.t)}</b>${bd(q.st)}</div><div class="mut">${esc(q.s)} · ${esc(q.au)} · ${esc(q.f)} · ${(q.a||[]).length} respuestas</div><p style="margin:6px 0">${esc(q.d)}</p><button class="btn sm" onclick="go('dudas/${q.id}')">Ver / responder</button></div>`;
-const pcard=p=>`<div class="card"><b>${esc(p.n)}</b><div><span class="tag">${esc(p.r)}</span><span class="tag">${esc(p.s)}</span><span class="tag ${p.mod==='Virtual'?'ok':'w'}">${p.mod==='Virtual'?'💻 Virtual':'🏫 '+esc(p.mod)}</span></div><p class="mut" style="margin:6px 0">${esc(p.info)}<br>🕒 Atención: ${esc(p.disp)}</p><button class="btn p sm" onclick="go('asesoria/${p.id}')">${p.r==='Monitor'?'Contactar / pedir asesoría':'Solicitar asesoría'}</button></div>`;
-const rcard=r=>`<div class="card"><div class="row sp"><b>${esc(r.n)}</b><span class="tag">${esc(r.ty)}</span></div><div class="mut">${esc(r.s)} · ${esc(r.f)} · Subido por ${esc(r.au||'Portal')}${r.file?` · 📎 ${esc(r.file.name)} (${Math.max(1,Math.round(r.file.size/1024))} KB)`:''}</div><p style="margin:6px 0">${esc(r.d)}</p></div>`;
+const pcard=p=>`<div class="card"><b>${esc(p.n)}</b><div><span class="tag">${esc(p.r)}</span><span class="tag">${esc(p.s)}</span><span class="tag ${p.mod==='Virtual'?'ok':'w'}">${p.mod==='Virtual'?'💻 Virtual':'🏫 '+esc(p.mod)}</span></div><p class="mut" style="margin:6px 0">${esc(p.info)}<br>🕒 Atención: ${esc(p.disp)}${p.correo?`<br>✉️ <a href="mailto:${esc(p.correo)}">${esc(p.correo)}</a>`:''}</p>${S.me?.rol==='Estudiante'?`<button class="btn p sm" onclick="go('asesoria/${p.id}')">${p.r==='Monitor'?'Contactar / pedir asesoría':'Solicitar asesoría'}</button>`:''}</div>`;
+const rcard=r=>`<div class="card"><div class="row sp"><b>${esc(r.n)}</b><span class="tag">${esc(r.ty)}</span></div><div class="mut">${esc(r.s)} · ${esc(r.f)} · Subido por ${esc(r.au||'Portal')}${r.file?` · 📎 ${esc(r.file.name)} (${Math.max(1,Math.round(r.file.size/1024))} KB)`:''}</div><p style="margin:6px 0">${esc(r.d)}</p><div class="row"><button class="btn sm" onclick="dl(${r.id})">⬇ Descargar</button>${r.url?`<a class="btn sm" href="${esc(r.url)}" target="_blank" rel="noopener">Abrir enlace ↗</a>`:''}</div></div>`;
+const acard=a=>`<div class="card"><b>${esc(a.n)}</b> <span class="tag">${esc(a.canal)}</span><p class="mut" style="margin:6px 0 0">${esc(a.d)}</p></div>`;
 function erow(e,full){const u=urg(e),d=new Date(e.due);return `<div class="dl"><div class="dt">${d.getDate()}<br>${MES[d.getMonth()]}</div><div style="flex:1;min-width:150px"><b>${esc(e.n)}</b><div class="mut">${esc(e.s)} · ${hora(d)} · ${sdot(e.src)}${SRC[e.src]?.t||''}</div></div><span class="tag ${u.c}">${u.t}</span>${full?`<button class="btn sm" onclick="togE(${e.id})">${e.st==='Entregada'?'Deshacer':'Marcar entregada'}</button>`:''}</div>`}
-function ccard(c){const po=S.me?.portal,nota=(po?.notas||[]).find(x=>x.s===c.n),nx=pend().find(e=>e.s===c.n);
-return `<div class="cc"><div class="cch" style="--c:${colOf(c.n)}"><span class="kick">${esc(c.per||'2026-2S')}</span><b>${esc(c.n)}</b><div class="cod">${esc(c.cod||'—')}-${esc(c.grp||'')}</div></div><div class="ccb"><div>${c.src.map(k=>`<span class="tag">${sdot(k)}${SRC[k].t}</span>`).join('')||'<span class="tag w">Sin plataforma vinculada</span>'}</div><div class="mut">${c.cr||'—'} créditos${nota?` · Nota actual <b>${nota.def}</b>`:''}</div>${nx?`<div class="mut">Próxima: <b>${esc(nx.n)}</b> · ${urg(nx).t}</div>`:'<div class="mut">Sin entregas pendientes</div>'}<div class="row">${c.src.includes('moodle')?`<a class="btn sm" href="${URLS.moodle}" target="_blank" rel="noopener">UAO Virtual ↗</a>`:''}${c.src.includes('classroom')?`<a class="btn sm" href="${URLS.classroom}" target="_blank" rel="noopener">Classroom ↗</a>`:''}<button class="btn sm" data-v="${esc(c.n)}" onclick="go('dudas');setF('q',this.dataset.v)">Dudas</button></div></div></div>`}
-const LOGO=()=>`<div class="lg"><img src="/img/logo-uao.png" alt="Universidad Autónoma de Occidente" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fb" hidden><b>UAO</b> Conecta</span></div>`;
-const nt=x=>`<span class="tag ${x>=3?'ok':'bad'}">${(+x).toFixed(1)}</span>`;
+function ccard(c){const po=S.me?.portal,nota=(po?.notas||[]).find(x=>x.s===c.n),nx=pend().find(e=>e.s===c.n),src=c.src||[];
+ const plat=c.ins===false?'<span class="tag w">No inscrita este semestre</span>':(src.map(k=>`<span class="tag">${sdot(k)}${SRC[k].t}</span>`).join('')||'<span class="tag">Inscrita · sin plataforma vinculada</span>');
+ return `<div class="cc"><div class="cch" style="--cc:${colOf(c.n)}"><span class="kick">${esc(c.per||PER())}</span><b>${esc(c.n+sig(c.n))}</b><div class="cod">${esc(c.cod||'—')}${c.grp?'-'+esc(c.grp):''}</div></div><div class="ccb"><div>${plat}</div>${c.desc&&c.ins===false?`<div class="mut">${esc(c.desc)}</div>`:''}<div class="mut">${c.cr||'—'} créditos${nota?` · Nota actual <b>${(+nota.def).toFixed(1)}</b>`:''}</div>${c.ins===false?'':(nx?`<div class="mut">Próxima: <b>${esc(nx.n)}</b> · ${urg(nx).t}</div>`:'<div class="mut">Sin entregas pendientes</div>')}<div class="row">${src.includes('moodle')?`<a class="btn sm" href="${URLS.moodle}" target="_blank" rel="noopener">UAO Virtual ↗</a>`:''}${src.includes('classroom')?`<a class="btn sm" href="${URLS.classroom}" target="_blank" rel="noopener">Classroom ↗</a>`:''}<button class="btn sm" onclick="FIL.q='${jsq(c.n)}';go('dudas')">Dudas</button><button class="btn sm" onclick="FIL.p='${jsq(c.n)}';go('rutas/monitores')">Monitores</button></div></div></div>`}
+const nt=x=>x==null||x===''||isNaN(+x)?'<span class="tag">—</span>':`<span class="tag ${+x>=3?'ok':'bad'}">${(+x).toFixed(1)}</span>`;
+const ncard=n=>`<div class="card row sp"><div><b>${esc(n.s)}</b><div class="mut">${n.cr} créd. · C1 ${n.n?.[0]??'—'} · C2 ${n.n?.[1]??'—'} · C3 ${n.n?.[2]??'—'}</div></div><div>Definitiva ${nt(n.def)}</div></div>`;
+
+/* Resultados de búsqueda: lim = máx. por sección (0 = sin límite) */
+function results(q,lim){
+ const k=String(q||'').trim(),cut=l=>lim?l.slice(0,lim):l,cat=catalogCourses(),po=S.me?.portal;
+ if(!k)return lim?'':`<h2 class="sec">Todas las materias <small>(${cat.length})</small></h2><div class="grid">${cat.map(ccard).join('')||'<div class="empty">Sin materias.</div>'}</div>`;
+ const F=(l,f)=>rank(l,x=>fuzzy(k,f(x)));
+ const sec=[
+  ['Materias',F(cat,x=>[x.n,x.cod,x.alias||[],x.area,x.desc]),l=>`<div class="grid">${l.map(ccard).join('')}</div>`],
+  ['Notas',F(po?.notas||[],x=>[x.s,x.cod]),l=>l.map(ncard).join('')],
+  ['Docentes y monitores',F(S.P,x=>[x.n,x.s,x.info,x.r]),l=>l.map(pcard).join('')],
+  ['Recursos',F(S.R,x=>[x.n,x.d,x.s,x.ty]),l=>l.map(rcard).join('')],
+  ['Servicios de apoyo',F(S.apoyo,x=>[x.n,x.d]),l=>l.map(acard).join('')],
+  ['Dudas',F(S.q,x=>[x.t,x.d,x.s,x.tags||[]]),l=>l.map(qcard).join('')],
+  ['Entregas',F(S.E,x=>[x.n,x.s]),l=>`<div class="card">${l.map(x=>erow(x)).join('')}</div>`]
+ ].filter(s=>s[1].length);
+ if(!sec.length)return `<div class="empty card">Sin resultados para «${esc(k)}». Prueba con otra palabra o una sigla (ej. «ihc», «poo»).</div>`;
+ return sec.map(([t,l,f])=>`<h2 class="sec">${t} <small>(${l.length})</small></h2>${f(cut(l))}`).join('')}
+function liveQ(v){clearTimeout(liveQ.t);liveQ.t=setTimeout(()=>{const box=$('sr');if(!box)return;const full=curView()==='buscar';
+ box.innerHTML=results(v,full?0:3)+(!full&&v.trim()?`<button class="btn sm" onclick="go('buscar/'+encodeURIComponent(val('gq')))">Ver todos los resultados →</button>`:'');
+ if(full)history.replaceState(null,'','#buscar/'+encodeURIComponent(v))},120)}
 
 /* ---------- vistas ---------- */
 const V={
 inicio(){const pe=pend(),po=S.me?.portal;
-return `<section class="hero2"><div class="ht"><p class="mut">${esc(S.me?.rol)} · 2026-2S</p><h1>Hola, ${esc((S.me?.n||'').split(' ')[0])}</h1><p class="s">Tus cursos, entregas, dudas y apoyo académico, en un solo lugar.</p></div></section>${sbox()}
-<div class="stats" style="margin-top:14px"><div class="stat"><b>${pe.length}</b><span>Pendientes</span></div><div class="stat"><b>${urgN()}</b><span>Urgentes</span></div><div class="stat"><b>${po?po.prom.toFixed(2):'—'}</b><span>Promedio acum.</span></div><div class="stat"><b>${po?po.cred+'/'+po.credTot:'—'}</b><span>Créditos</span></div></div>
-<h2 class="sec">Próximas entregas</h2><div class="card">${pe.slice(0,5).map(e=>erow(e)).join('')||'<div class="empty">No tienes entregas pendientes.<br><br><button class="btn p sm" onclick="go(\'cursos\')">Sincronizar plataformas</button></div>'}</div>${pe.length?'<button class="btn sm" onclick="go(\'entregas\')">Ver todas las entregas →</button>':''}
-<h2 class="sec">Mis asignaturas</h2><div class="grid">${allCourses().map(ccard).join('')||'<div class="empty">Sin asignaturas.</div>'}</div>
-<h2 class="sec">Foro de dudas</h2>${(S.q||[]).slice(-3).reverse().map(qcard).join('')||'<div class="empty">Sin dudas aún.</div>'}`},
+ return `<div class="hero"><span class="kick">${esc(S.me?.rol)} · ${esc(PER())}</span><h1>Hola, ${esc((S.me?.n||'').split(' ')[0])}. Tu semestre UAO, en un solo lugar.</h1><p class="mut">Cursos, notas, entregas, foro y apoyo académico sincronizados.</p></div>${sbox()}<div id="sr" aria-live="polite"></div>
+ ${demoDone()<DEMO_N?`<div class="banner"><div><b>¿Primera vez en UAO Conecta?</b><div class="mut">Practica en el modo Demo: ejemplos guiados que no se conectan a ninguna plataforma.</div></div><button class="btn p sm" onclick="go('demo')">Abrir modo Demo (${demoDone()}/${DEMO_N})</button></div>`:''}
+ <div class="stats" style="margin-top:14px"><div class="stat"><b>${pe.length}</b><span>Pendientes</span></div><div class="stat"><b>${urgN()}</b><span>Urgentes</span></div><div class="stat"><b>${po?po.sem.toFixed(2):'—'}</b><span>Promedio semestre</span></div><div class="stat"><b>${po?po.cred+'/'+po.credTot:'—'}</b><span>Créditos aprobados</span></div></div>
+ <h2 class="sec">Próximas entregas</h2><div class="card">${pe.slice(0,5).map(e=>erow(e)).join('')||'<div class="empty">No tienes entregas pendientes.<br><br><button class="btn p sm" onclick="go(\'cursos\')">Sincronizar plataformas</button></div>'}</div>${pe.length?'<button class="btn sm" onclick="go(\'entregas\')">Ver todas las entregas →</button>':''}
+ <h2 class="sec">Mis asignaturas</h2><div class="grid">${allCourses().map(ccard).join('')||'<div class="empty">Sin asignaturas.</div>'}</div>
+ <h2 class="sec">Foro de dudas</h2>${(S.q||[]).slice(-3).reverse().map(qcard).join('')||'<div class="empty">Sin dudas aún.</div>'}`},
 
-cursos(){const f=S.me?.fuentes||{},E=S.E||[],po=S.me?.portal,mo=f.moodle||{},cl=f.classroom||{},nE=k=>E.filter(e=>e.src===k).length;
-const stg=(o,t)=>o?`<span class="tag ok">✓ Sincronizado</span> <span class="mut">${t}</span>`:'<span class="tag w">Sin sincronizar</span>';
-return `<h1>Mis cursos</h1><p class="s">Semestre 2026-2S · ${esc(S.me?.prog)}</p>
-<div class="grid">${allCourses().map(ccard).join('')||'<div class="empty">Sin asignaturas.</div>'}</div>
-<h2 class="sec">Conexión con plataformas</h2>
-<div class="grid int">
-<div class="card"><h3>${sdot('classroom')}Google Classroom</h3><p class="mut">Importa tus clases y tareas institucionales (@uao.edu.co).</p><p>${stg(cl.conectado,`${(cl.cursos||[]).length} curso(s) · ${nE('classroom')} entregas`)}</p>
-<div class="row"><button class="btn p sm" onclick="sync('classroom')">⟳ Sincronizar asignaturas</button><a class="btn sm" href="${URLS.classroom}" target="_blank" rel="noopener">Acceder a Google Classroom ↗</a>${cl.conectado?'<button class="btn sm" onclick="unlink(\'classroom\')">Desconectar</button>':''}</div></div>
-<div class="card"><h3>${sdot('moodle')}UAO Virtual · Moodle</h3><p>${stg(mo.conectado,`${nE('moodle')} entregas${mo.sync?' · '+esc(mo.sync):''}`)}</p>
-<label for="m_ical">Enlace del calendario (iCal / exportar)</label><input id="m_ical" type="url" placeholder="https://campus.uaovirtual.edu.co/calendar/export_execute.php?...">
-<p class="mut" style="margin-top:-6px">En UAO Virtual: Calendario → Importar o exportar → Exportar → copia la URL. Si ya está conectado, déjalo vacío para volver a sincronizar.</p>
-<div class="row"><button class="btn p sm" onclick="sync('moodle')">⟳ Sincronizar calendario</button><a class="btn sm" href="${URLS.moodle}" target="_blank" rel="noopener">Acceder a UAO Virtual ↗</a>${mo.conectado?'<button class="btn sm" onclick="unlink(\'moodle\')">Desconectar</button>':''}</div></div>
-<div class="card"><h3>🎓 Portal Estudiantil UAO</h3><p class="mut">Notas del semestre, promedio acumulado y créditos. El Portal no ofrece API: registra tus notas manualmente.</p><p>${stg(!!po,po?'Actualizado '+esc(po.sync):'')}</p><input id="nt_m" placeholder="Materia"><input id="nt_c" type="number" min="1" max="12" placeholder="Créditos"><input id="nt_n" placeholder="Nota (0 a 5)">
-<div class="row"><button class="btn p sm" onclick="addNota()">+ Registrar nota</button><a class="btn sm" href="${URLS.portal}" target="_blank" rel="noopener">Acceder al Portal Estudiantil ↗</a></div></div></div>
-<h2 class="sec">Entregas sincronizadas</h2><div class="card">${E.filter(e=>e.src!=='manual'&&e.st!=='Entregada').sort((a,b)=>new Date(a.due)-new Date(b.due)).slice(0,6).map(e=>erow(e)).join('')||'<div class="empty">Sincroniza UAO Virtual o Classroom para ver tus entregas.</div>'}</div>
-<h2 class="sec">Notas del semestre</h2>${po?`<div class="stats"><div class="stat"><b>${po.sem.toFixed(2)}</b><span>Promedio semestre</span></div><div class="stat"><b>${po.prom.toFixed(2)}</b><span>Promedio acumulado</span></div><div class="stat"><b>${po.cred}</b><span>Créditos aprobados</span></div><div class="stat"><b>${po.credTot}</b><span>Créditos del plan</span></div></div>
-<div class="card tw"><table><thead><tr><th>Asignatura</th><th>Créd.</th><th>Corte 1 (30%)</th><th>Corte 2 (30%)</th><th>Corte 3 (40%)</th><th>Definitiva</th></tr></thead><tbody>${(po.notas||[]).map(n=>`<tr><td><b>${esc(n.s)}</b><div class="mut">${esc(n.cod)}</div></td><td>${n.cr}</td>${(n.n||[]).map(x=>`<td>${nt(x)}</td>`).join('')}<td>${nt(n.def)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty card">Aún no has sincronizado tus notas con el Portal Estudiantil.</div>'}`},
+cursos(){const f=S.me?.fuentes||{},E=S.E||[],po=S.me?.portal,mo=f.moodle||{},cl=f.classroom||{},nE=k=>E.filter(e=>e.src===k).length,w=(po?.pesos||[.3,.3,.4]).map(x=>Math.round(x*100));
+ const stg=(o,t)=>o?`<span class="tag ok">✓ Sincronizado</span> <span class="mut">${t}</span>`:'<span class="tag w">Sin sincronizar</span>';
+ return `<h1>Mis cursos</h1><p class="s">Semestre ${esc(PER())} · ${esc(S.me?.prog)}</p>
+ <div class="grid">${allCourses().map(ccard).join('')||'<div class="empty">Sin asignaturas.</div>'}</div>
+ <h2 class="sec">Conexión con plataformas</h2>
+ <div class="grid int">
+ <div class="card"><h3>${sdot('classroom')}Google Classroom</h3><p class="mut">Importa tus clases y tareas institucionales (@${esc(CFG.domain)}).</p><p>${stg(cl.conectado,`${(cl.cursos||[]).length} curso(s) · ${nE('classroom')} entregas`)}</p>
+ <div class="row"><button class="btn p sm" onclick="sync('classroom')">⟳ Sincronizar asignaturas</button><a class="btn sm" href="${URLS.classroom}" target="_blank" rel="noopener">Acceder a Google Classroom ↗</a></div></div>
+ <div class="card"><h3>${sdot('moodle')}UAO Virtual · Moodle</h3><p>${stg(mo.conectado,`${(mo.cursos||[]).length} curso(s) · ${nE('moodle')} entregas${mo.sync?' · '+esc(mo.sync):''}`)}</p>
+ <label for="m_ical">Enlace del calendario (iCal / exportar)</label><input id="m_ical" type="url" placeholder="https://campus.uaovirtual.edu.co/calendar/export_execute.php?...">
+ <p class="mut" style="margin-top:-6px">En UAO Virtual: Calendario → Importar o exportar → Exportar → copia la URL.${CFG.demo?' Si lo dejas vacío se hace una sincronización de demostración.':''}</p>
+ <div class="row"><button class="btn p sm" onclick="sync('moodle')">⟳ Sincronizar calendario</button><a class="btn sm" href="${URLS.moodle}" target="_blank" rel="noopener">Acceder a UAO Virtual ↗</a></div></div>
+ <div class="card"><h3>🎓 Portal Estudiantil UAO</h3><p class="mut">Notas por corte, promedio del semestre y créditos.</p><p>${stg(!!po,po?'Actualizado '+esc(po.sync):'')}</p>
+ <div class="row"><button class="btn p sm" onclick="sync('portal')">⟳ Consultar y sincronizar notas</button><a class="btn sm" href="${URLS.portal}" target="_blank" rel="noopener">Acceder al Portal Estudiantil ↗</a></div></div></div>
+ <h2 class="sec">Entregas sincronizadas</h2><div class="card">${E.filter(e=>e.src!=='manual'&&e.st!=='Entregada').sort((a,b)=>new Date(a.due)-new Date(b.due)).slice(0,6).map(e=>erow(e)).join('')||'<div class="empty">Sincroniza UAO Virtual o Classroom para ver tus entregas.</div>'}</div>
+ <h2 class="sec">Notas del semestre</h2>${po?`<div class="stats"><div class="stat"><b>${po.sem.toFixed(2)}</b><span>Promedio semestre</span></div><div class="stat"><b>${(+po.prom).toFixed(2)}</b><span>Promedio acumulado</span></div><div class="stat"><b>${po.cred}</b><span>Créditos aprobados</span></div><div class="stat"><b>${po.credTot}</b><span>Créditos inscritos</span></div></div>
+ <div class="card tw"><table><thead><tr><th>Asignatura</th><th>Créd.</th><th>Corte 1 (${w[0]}%)</th><th>Corte 2 (${w[1]}%)</th><th>Corte 3 (${w[2]}%)</th><th>Definitiva</th></tr></thead><tbody>${(po.notas||[]).map(n=>`<tr><td><b>${esc(n.s)}</b><div class="mut">${esc(n.cod)}</div></td><td>${n.cr}</td>${[0,1,2].map(k=>`<td>${nt(n.n?.[k])}</td>`).join('')}<td>${nt(n.def)}</td></tr>`).join('')}</tbody></table><p class="mut" style="margin:10px 0 0">Definitiva = C1×${w[0]}% + C2×${w[1]}% + C3×${w[2]}%. Se aprueba con 3.0.</p></div>`:'<div class="empty card">Aún no has sincronizado tus notas con el Portal Estudiantil.</div>'}`},
 
 dudas(a){
  if(a)return V.duda(a);
  const l=(S.q||[]).filter(q=>!FIL.q||q.s===FIL.q).slice().reverse();
  return `<h1>Foro de dudas</h1><p class="s">Pregunta por asignatura, responde y marca la solución.</p>
- <details class="card"><summary><b>+ Nueva duda</b></summary><label for="dq_s">Asignatura</label><select id="dq_s">${opts(subjects(),FIL.q)}</select><label for="dq_t">Título</label><input id="dq_t" maxlength="150" placeholder="Resume tu duda"><label for="dq_d">Descripción</label><textarea id="dq_d" placeholder="Explica qué intentaste y dónde te trabaste..."></textarea><label><input type="checkbox" id="dq_a"> Publicar de forma anónima</label><div style="margin-top:12px"><button class="btn p sm" onclick="addQuestion()">Publicar duda</button></div></details>
- ${chips('q',subjects())}${l.map(qcard).join('')||'<div class="empty">No hay dudas en esta asignatura.</div>'}`},
+ <details class="card"><summary><b>+ Nueva duda</b></summary><label for="dq_s">Asignatura</label><select id="dq_s">${opts(allSubjects(),FIL.q)}</select><label for="dq_t">Título</label><input id="dq_t" maxlength="150" placeholder="Resume tu duda"><label for="dq_d">Descripción</label><textarea id="dq_d" placeholder="Explica qué intentaste y dónde te trabaste..."></textarea><label><input type="checkbox" id="dq_a"> Publicar de forma anónima</label><div style="margin-top:12px"><button class="btn p sm" onclick="addQuestion()">Publicar duda</button></div></details>
+ ${chips('q',[...new Set([...subjects(),...(S.q||[]).map(q=>q.s)])])}${l.map(qcard).join('')||'<div class="empty">No hay dudas en esta asignatura.</div>'}`},
 duda(id){const q=(S.q||[]).find(x=>x.id==id);
  if(!q)return `<button class="btn sm" onclick="go('dudas')">← Volver</button><div class="empty">Esa duda no existe.</div>`;
- const an=(q.a||[]).slice().sort((x,y)=>(y.sol||0)-(x.sol||0)||y.u-x.u);
+ const an=(q.a||[]).slice().sort((x,y)=>(y.sol||0)-(x.sol||0)||y.u-x.u),re=q.a.length?'En discusión':'Sin respuesta';
  return `<button class="btn sm" onclick="go('dudas')">← Volver al foro</button><h1 style="margin-top:14px">${esc(q.t)}</h1><div class="mut">${esc(q.s)} · ${esc(q.au)} · ${esc(q.f)} ${bd(q.st)}</div><p>${esc(q.d)}</p>
- ${q.can?(q.st==='Resuelta'?`<button class="btn sm" onclick="resolveQ(${q.id},0,1)">↺ Reabrir duda</button>`:`<button class="btn sm" onclick="resolveQ(${q.id},-1,0)">✓ Marcar duda como resuelta</button>`):''}
+ ${q.can?(q.st==='Resuelta'?`<button class="btn sm" onclick="markQ(${q.id},'${re}')">↺ Reabrir duda</button>`:`<button class="btn sm" onclick="markQ(${q.id},'Resuelta')">✓ Marcar duda como resuelta</button>`):''}
  <h2 class="sec">${an.length} respuesta(s)</h2>
- ${an.map(a=>`<div class="ans ${a.sol?'sol':''}"><div><b>${esc(a.n)}</b> <span class="tag">${esc(a.by)}</span>${a.sol?'<span class="tag ok">✓ Solución</span>':''}</div><p style="margin:6px 0">${esc(a.x)}</p><div class="row"><button class="btn sm ${a.vm?'p':''}" onclick="voteA(${q.id},${a.id})">▲ Útil (${a.u})</button>${q.can?`<button class="btn sm" onclick="${a.sol?'unsolveQ':'resolveQ'}(${q.id},${a.id},0)">${a.sol?'Quitar solución':'Marcar como solución'}</button>`:''}</div></div>`).join('')||'<div class="empty">Sé la primera persona en responder.</div>'}
+ ${an.map(a=>`<div class="ans ${a.sol?'sol':''}"><div><b>${esc(a.n)}</b> <span class="tag">${esc(a.by)}</span>${a.sol?'<span class="tag ok">✓ Solución</span>':''}</div><p style="margin:6px 0">${esc(a.x)}</p><div class="row"><button class="btn sm ${a.vm?'p':''}" onclick="voteA(${q.id},${a.id})">▲ Útil (${a.u})</button>${q.can?`<button class="btn sm" onclick="solA(${q.id},${a.id},${a.sol?1:0})">${a.sol?'Quitar solución':'Marcar como solución'}</button>`:''}</div></div>`).join('')||'<div class="empty">Sé la primera persona en responder.</div>'}
  <div class="card"><label for="ans_x">Tu respuesta</label><textarea id="ans_x" placeholder="Escribe una respuesta clara..."></textarea><button class="btn p sm" onclick="answerQ(${q.id})">Responder</button></div>`},
 
 entregas(){const E=S.E||[],f=FIL.e||'pend';
@@ -252,95 +333,189 @@ entregas(){const E=S.E||[],f=FIL.e||'pend';
  <div class="srch">Estado</div><div class="tabs">${est.map(([k,t])=>`<button class="chip ${f===k?'on':''}" onclick="FIL.e='${k}';render(1)">${t}</button>`).join('')}</div>
  <div class="srch">Materia</div>${chips('s',subjects())}
  <div class="card">${l.map(e=>erow(e,1)).join('')||'<div class="empty">No hay entregas con estos filtros.</div>'}</div>
- <details class="card"><summary><b>+ Agregar entrega manual</b></summary><label for="en_n">Nombre</label><input id="en_n" placeholder="Ej. Taller 5 de Física"><label for="en_s">Materia</label><select id="en_s">${opts(subjects(),FIL.s)}</select><label for="en_d">Fecha límite</label><input id="en_d" type="date"><button class="btn p sm" onclick="addE()">Guardar entrega</button></details>`},
+ <details class="card"><summary><b>+ Agregar entrega manual</b></summary><label for="en_n">Nombre</label><input id="en_n" placeholder="Ej. Taller 5 de Cálculo Vectorial"><label for="en_s">Materia</label><select id="en_s">${opts(subjects(),FIL.s)}</select><label for="en_d">Fecha límite</label><input id="en_d" type="date"><button class="btn p sm" onclick="addE()">Guardar entrega</button></details>`},
 
 grupo(a){const t=a||'';
  const tar=(S.T||[]).map(x=>`<div class="card row sp"><div><b>${esc(x.n)}</b><div class="mut">${esc(x.w)} · Vence: ${esc(x.d)}</div></div><div class="row">${bd(x.st)}<button class="btn sm" onclick="nextT(${x.id})">Cambiar estado</button></div></div>`).join('')||'<div class="empty">No hay tareas.</div>';
- const cmu=(S.G||[]).map(g=>`<div class="card row sp"><div><b>${esc(g.n)}</b>${g.j?' <span class="tag ok">Eres miembro</span>':''}<div class="mut">Asignatura: ${esc(g.s)} · Integrantes: ${g.m}</div></div><button class="btn ${g.j?'':'p'} sm" onclick="joinG(${g.id})">${g.j?'Salir':'Unirme'}</button></div>`).join('')||'<div class="empty">No hay comunidades.</div>';
+ const cmu=(S.G||[]).map(g=>`<div class="card row sp"><div><b>${esc(g.n)}</b>${g.j?' <span class="tag ok">Eres miembro</span>':''}${g.o?' <span class="tag">Con monitor</span>':''}<div class="mut">Asignatura: ${esc(g.s)} · Integrantes: ${g.m}</div></div><button class="btn ${g.j?'':'p'} sm" onclick="joinG(${g.id})">${g.j?'Salir':'Unirme'}</button></div>`).join('')||'<div class="empty">No hay comunidades.</div>';
  const arc=(S.F||[]).map(x=>`<div class="card"><b>${esc(x.n)}</b><div class="mut">Autor: ${esc(x.au)} · ${esc(x.f)}</div></div>`).join('')||'<div class="empty">No hay acuerdos.</div>';
  const tb=[['','Tareas compartidas'],['comunidades','Comunidades'],['acuerdos','Acuerdos']];
  return `<h1>Mi grupo</h1><p class="s">Coordina tareas de equipo, comunidades de estudio y acuerdos.</p>
  <div class="tabs">${tb.map(([k,x])=>`<button class="chip ${t===k?'on':''}" onclick="go('grupo${k?'/'+k:''}')">${x}</button>`).join('')}</div>`+
- (t==='comunidades'?cmu+`<div class="card"><label for="gn">Crear comunidad de estudio</label><input id="gn" placeholder="Nombre de la comunidad"><label for="gs">Asignatura</label><select id="gs">${opts(subjects())}</select><button class="btn p sm" onclick="addGroup()">+ Crear comunidad</button></div>`:
+ (t==='comunidades'?cmu+`<div class="card"><label for="gn">Crear comunidad de estudio</label><input id="gn" placeholder="Nombre de la comunidad"><label for="gs">Asignatura</label><select id="gs">${opts(allSubjects())}</select><button class="btn p sm" onclick="addGroup()">+ Crear comunidad</button></div>`:
   t==='acuerdos'?arc+`<div class="card"><label for="fa">Nuevo acuerdo de equipo</label><textarea id="fa" placeholder="Ej. Reunirnos los martes a las 4 p. m."></textarea><button class="btn p sm" onclick="addF()">+ Registrar acuerdo</button></div>`:
-  tar+`<div class="card"><label for="tn">Nueva tarea compartida</label><input id="tn" placeholder="Nombre de la tarea"><label for="tw">Asignado a</label><input id="tw" placeholder="Nombre de la persona"><label for="td">Fecha límite</label><input id="td" placeholder="Ej. 5 nov"><button class="btn p sm" onclick="addT()">+ Agregar tarea</button></div>`)},
+  tar+`<div class="card"><label for="tn">Nueva tarea compartida</label><input id="tn" placeholder="Nombre de la tarea"><label for="tw">Asignado a</label><input id="tw" placeholder="Nombre de la persona"><label for="td">Fecha límite</label><input id="td" placeholder="Ej. 20 nov"><button class="btn p sm" onclick="addT()">+ Agregar tarea</button></div>`)},
 
 rutas(a){const t=['docentes','monitores','recursos'].includes(a)?a:'docentes',P=S.P||[];
  const tb=[['docentes','🎓 Docentes'],['monitores','🙋 Monitores'],['recursos','📚 Recursos']];
  let body;
- if(t==='recursos'){const ty=['Guía','Taller','Apunte','Otro'];
+ if(t==='recursos'){const ty=['Guía','Taller','Apunte','Documento','Enlace','Material de estudio','Otro'],tyF=[...new Set((S.R||[]).map(r=>r.ty))];
   const l=(S.R||[]).filter(r=>(!FIL.rs||r.s===FIL.rs)&&(!FIL.rt||r.ty===FIL.rt)).slice().reverse();
-  body=`<details class="card" ${S.me.rol==='Estudiante'?'hidden':''}><summary><b>⬆ Subir nuevo recurso</b></summary><label for="rn">Título</label><input id="rn" maxlength="100" placeholder="Ej. Taller 4 de integrales"><label for="rs">Asignatura</label><select id="rs">${opts(subjects())}</select><label for="rt">Tipo</label><select id="rt">${opts(ty)}</select><label for="rd">Descripción</label><textarea id="rd" placeholder="¿Qué contiene y para qué sirve?"></textarea><button class="btn p sm" onclick="addRes()">Subir recurso</button></details>
-  <div class="srch">Asignatura</div>${chips('rs',subjects())}<div class="srch">Tipo</div>${chips('rt',ty)}${l.map(rcard).join('')||'<div class="empty">No hay recursos con estos filtros.</div>'}`}
- else{const r=t==='docentes'?'Docente':'Monitor';
-  const l=P.filter(p=>p.r===r&&(!FIL.p||p.s===FIL.p));
-  body=chips('p',subjects())+(l.map(pcard).join('')||'<div class="empty">No hay personas disponibles para esta asignatura.</div>')+advList()}
- return `<h1>Apoyo académico</h1><p class="s">Docentes, monitores y repositorio de recursos.</p><div class="tabs">${tb.map(([k,x])=>`<button class="chip ${t===k?'on':''}" onclick="go('rutas/${k}')">${x}</button>`).join('')}</div>${body}`},
+  const up=S.me?.rol==='Estudiante'?'<p class="mut">Solo docentes y monitores pueden subir recursos. Ingresa con una cuenta de docente o monitor para probarlo.</p>':`<details class="card"><summary><b>⬆ Subir nuevo recurso</b></summary><label for="rn">Título</label><input id="rn" maxlength="100" placeholder="Ej. Taller 4 de integrales"><label for="rs">Asignatura</label><select id="rs">${opts(allSubjects())}</select><label for="rt">Tipo</label><select id="rt">${opts(ty)}</select><label for="rd">Descripción</label><textarea id="rd" placeholder="¿Qué contiene y para qué sirve?"></textarea><label for="rf">Archivo (opcional, máx. 3 MB)</label><input id="rf" type="file"><button class="btn p sm" onclick="addRes()">Subir recurso</button></details>`;
+  body=`<h2 class="sec">Servicios de apoyo</h2><div class="grid">${(S.apoyo||[]).map(acard).join('')}</div><p class="mut">Información de ejemplo para la demostración; confirma horarios y canales con la universidad.</p>
+  <h2 class="sec">Repositorio de recursos</h2>${up}<div class="srch">Asignatura</div>${chips('rs',[...new Set((S.R||[]).map(r=>r.s))])}<div class="srch">Tipo</div>${chips('rt',tyF)}${l.map(rcard).join('')||'<div class="empty">No hay recursos con estos filtros.</div>'}`}
+ else{const r=t==='docentes'?'Docente':'Monitor',mine=P.filter(p=>p.r===r);
+  const fp=nm(FIL.p);if(FIL.p&&!mine.some(p=>p.s===fp))FIL.p='';
+  const l=mine.filter(p=>!FIL.p||p.s===fp);
+  body=chips('p',[...new Set(mine.map(p=>p.s))])+(l.map(pcard).join('')||'<div class="empty">No hay personas disponibles para esta asignatura.</div>')+advList()}
+ return `<h1>Apoyo académico</h1><p class="s">Docentes, monitores, recursos y servicios de apoyo.</p><div class="tabs">${tb.map(([k,x])=>`<button class="chip ${t===k?'on':''}" onclick="go('rutas/${k}')">${x}</button>`).join('')}</div>${body}`},
 
 asesoria(id){const p=(S.P||[]).find(x=>x.id==id);
  if(!p)return `<button class="btn sm" onclick="go('rutas')">← Volver</button><div class="empty">Persona no encontrada.</div>`;
  return `<button class="btn sm" onclick="go('rutas/${p.r==='Monitor'?'monitores':'docentes'}')">← Volver</button><h1 style="margin-top:14px">Solicitar asesoría</h1><div class="card"><b>${esc(p.n)}</b> <span class="tag">${esc(p.r)}</span><p class="mut" style="margin:4px 0">${esc(p.s)} · 🕒 ${esc(p.disp)} · ${esc(p.mod)}</p></div>
  <label for="at">Tema o duda principal</label><input id="at" maxlength="100"><label for="am_mod">Modalidad preferida</label><select id="am_mod"><option>Presencial</option><option>Virtual</option></select><label for="ah">Horario sugerido</label><input id="ah" placeholder="Ej. Martes 3 p. m."><label for="am">Mensaje</label><textarea id="am"></textarea><button class="btn p" onclick="sendA(${p.id},'${p.r}')">Enviar solicitud</button>`},
 
-buscar(a){const q=decodeURIComponent(a||'').trim(),k=q.toLowerCase(),has=(...x)=>x.some(y=>String(y||'').toLowerCase().includes(k));
- const c=allCourses().filter(x=>has(x.n,x.cod)),d=(S.q||[]).filter(x=>has(x.t,x.d,x.s)),r=(S.R||[]).filter(x=>has(x.n,x.d,x.s)),e=(S.E||[]).filter(x=>has(x.n,x.s)),p=(S.P||[]).filter(x=>has(x.n,x.s,x.info));
- return `<h1>Resultados</h1>${sbox(q)}${k?`<h2 class="sec">Asignaturas</h2><div class="grid">${c.map(ccard).join('')||'<div class="empty">Sin resultados.</div>'}</div><h2 class="sec">Dudas</h2>${d.map(qcard).join('')||'<div class="empty">Sin resultados.</div>'}<h2 class="sec">Entregas</h2><div class="card">${e.map(x=>erow(x)).join('')||'<div class="empty">Sin resultados.</div>'}</div><h2 class="sec">Recursos</h2>${r.map(rcard).join('')||'<div class="empty">Sin resultados.</div>'}<h2 class="sec">Docentes y monitores</h2>${p.map(pcard).join('')||'<div class="empty">Sin resultados.</div>'}`:''}`},
+buscar(a){let q='';try{q=decodeURIComponent(a||'')}catch{q=a||''}
+ return `<h1>Buscar</h1><p class="s">Búsqueda difusa en materias, notas, monitores, recursos, dudas y entregas. Tolera tildes, errores de escritura y siglas (ej. «calclo», «ihc», «poo»).</p>${sbox(q)}<div id="sr" aria-live="polite">${results(q,0)}</div>`},
 
-perfil(){const m=S.me||{};return `<h1>Mi perfil</h1><div class="card"><b>${esc(m.n)}</b><p class="mut">${esc(m.email)} · ${esc(m.prog)} · Rol: ${esc(m.rol)}</p><p class="mut">Cursos: ${(m.cursos||[]).map(esc).join(', ')||'—'}</p><button class="btn sm" onclick="logout()">Cerrar sesión</button></div>`},
-notificaciones(){const l=pend().filter(e=>['urg','venc'].includes(urg(e).k));const N=S.N||[];return `<h1>Notificaciones</h1>${N.length?`<div class="card">${N.map(n=>`<div class="dl"><div style="flex:1"><b class="lk" onclick="go('${esc(n.h||'inicio')}')">${esc(n.x)}</b></div>${n.r?'':'<span class="tag w">Nueva</span>'}</div>`).join('')}<button class="btn sm" onclick="act(()=>api('POST','/notifications/read'))">Marcar como leídas</button></div>`:''}<div class="card">${l.map(e=>erow(e)).join('')||'<div class="empty">Sin alertas: estás al día 🎉</div>'}</div>`}
+demo(){const d=DM,n=demoDone(),P=(S.P||[]),mons=P.filter(p=>p.r==='Monitor'),po=S.me?.portal,w=po?.pesos||[.3,.3,.4];
+ const W=w.map(x=>Math.round(x*100)),c=d.calc||{},ok=k=>d.done[k]?'ok':'',chk=k=>d.done[k]?'<span class="tag ok">✓ Completada</span>':'<span class="tag w">Pendiente</span>';
+ let calc='';if(c.r){const acc=w[0]*c.c1+w[1]*c.c2,need=(3-acc)/w[2];
+  calc=`<div class="formula">Acumulado = ${c.c1}×${w[0]} + ${c.c2}×${w[1]} = ${acc.toFixed(2)}\nNecesitas en C3 = (3.0 − ${acc.toFixed(2)}) ÷ ${w[2]} = ${need.toFixed(2)}</div><p>${need<=0?'🎉 Ya tienes la materia aprobada aunque saques 0.0 en el tercer corte.':need>5?'⚠️ No alcanza: necesitarías más de 5.0. Habla con tu docente o pide monitoría.':`Necesitas <b>${Math.ceil(need*10)/10}</b> en el tercer corte para aprobar con 3.0.`}</p>`}
+ const subOpts=(po?.notas||[]).map(x=>`<option value="${esc(x.s)}">${esc(x.s)}</option>`).join('');
+ const ents=d.ent.map((e,i)=>`<div class="dl"><div style="flex:1"><b>${esc(e.n)}</b><div class="mut">${esc(e.s)} · ${esc(e.f)} · Práctica</div></div>${e.ok?'<span class="tag ok">✓ Entregada</span>':`<button class="btn sm" onclick="dmEntOk(${i})">Marcar entregada</button>`}</div>`).join('');
+ const q=d.q,qhtml=q?`<div class="card"><b>${esc(q.t)}</b> ${bd(q.sol?'Resuelta':q.a?'En discusión':'Sin respuesta')}<div class="mut">${esc(q.s)} · Tú (práctica)</div>${q.a?`<div class="ans ${q.sol?'sol':''}"><b>${esc(q.a.n)}</b> <span class="tag">Monitor</span>${q.sol?'<span class="tag ok">✓ Solución</span>':''}<p style="margin:6px 0">${esc(q.a.x)}</p>${q.sol?'':'<button class="btn p sm" onclick="dmSol()">Marcar como solución</button>'}</div>`:'<p class="mut">⏳ Un monitor de ejemplo está escribiendo una respuesta…</p>'}</div>`:'';
+ const a=d.as,ahtml=a?`<div class="card"><div class="row sp"><b>${esc(a.tema)}</b>${bd(a.st)}</div><div class="mut">Con: ${esc(a.pn)} · ${esc(a.mod)} · ${esc(a.hor||'Sin horario')}</div>${a.st==='Pendiente'?'<p class="mut">⏳ Esperando respuesta del monitor (simulada)…</p>':'<p class="mut">✅ El monitor aceptó. En la versión real te llegaría una notificación.</p>'}</div>`:'';
+ const ex=['calclo','ihc','monitor estadistica','integrales'];
+ return `<h1>Modo demo</h1><p class="s">Aprende a usar UAO Conecta con ejemplos guiados. <b>Nada de esta pestaña se conecta a UAO Virtual, Classroom ni al Portal</b>, y no se guarda en el servidor (solo en este navegador).</p>
+ <div class="card"><div class="row sp"><b>Tu progreso: ${n}/${DEMO_N} misiones</b><button class="btn sm" onclick="dmReset()">↺ Reiniciar práctica</button></div><div class="prog"><i style="width:${n/DEMO_N*100}%"></i></div>${n===DEMO_N?'<p>🎉 ¡Completaste todas las misiones! Ya sabes usar las funciones principales.</p>':''}</div>
+
+ <div class="card mis ${ok('calc')}"><h3><span class="n">1</span>Calcula la nota que necesitas ${chk('calc')}</h3><p class="mut">Las notas se ponderan por cortes (${W.join(' / ')} %). Escribe tus dos primeros cortes y mira cuánto necesitas en el tercero.</p>
+  ${subOpts?`<label for="dm_m">Cargar una materia de ejemplo</label><select id="dm_m" onchange="dmFill(this.value)"><option value="">— Escribir a mano —</option>${subOpts}</select>`:''}
+  <div class="g2"><div><label for="dm_c1">Corte 1 (${W[0]} %)</label><input id="dm_c1" type="number" min="0" max="5" step="0.1" value="${c.c1??''}"></div><div><label for="dm_c2">Corte 2 (${W[1]} %)</label><input id="dm_c2" type="number" min="0" max="5" step="0.1" value="${c.c2??''}"></div></div>
+  <button class="btn p sm" onclick="dmCalc()">Calcular</button>${calc}</div>
+
+ <div class="card mis ${ok('ent')}"><h3><span class="n">2</span>Registra una entrega y márcala como entregada ${chk('ent')}</h3><p class="mut">Así organizas tus pendientes. En la versión real también llegan solas desde UAO Virtual y Classroom.</p>
+  <div class="g2"><div><label for="dm_en">Nombre</label><input id="dm_en" placeholder="Ej. Taller 3 de prototipado"></div><div><label for="dm_es">Materia</label><select id="dm_es">${opts(subjects().length?subjects():allSubjects())}</select></div></div>
+  <button class="btn p sm" onclick="dmEnt()">+ Agregar entrega de práctica</button>${ents?`<div class="card" style="margin-top:12px">${ents}</div>`:''}</div>
+
+ <div class="card mis ${ok('duda')}"><h3><span class="n">3</span>Publica una duda y marca la solución ${chk('duda')}</h3><p class="mut">Un monitor de ejemplo te responderá en unos segundos. Luego marca su respuesta como solución.</p>
+  ${q?qhtml:`<label for="dm_qt">Tu duda</label><input id="dm_qt" placeholder="Ej. ¿Cómo hago un wireframe de baja fidelidad?"><label for="dm_qs">Materia</label><select id="dm_qs">${opts(allSubjects())}</select><button class="btn p sm" onclick="dmQ()">Publicar duda de práctica</button>`}</div>
+
+ <div class="card mis ${ok('ase')}"><h3><span class="n">4</span>Solicita una asesoría con un monitor ${chk('ase')}</h3><p class="mut">Elige un monitor, propone un horario y mira cómo cambia el estado de la solicitud.</p>
+  ${a?ahtml:(mons.length?`<label for="dm_ap">Monitor</label><select id="dm_ap">${mons.map(m=>`<option value="${m.id}">${esc(m.n)} — ${esc(m.s)} (${esc(m.disp)})</option>`).join('')}</select><div class="g2"><div><label for="dm_at">Tema</label><input id="dm_at" placeholder="Ej. Integrales dobles"></div><div><label for="dm_ah">Horario sugerido</label><input id="dm_ah" placeholder="Ej. Martes 3 p. m."></div></div><label for="dm_am">Modalidad</label><select id="dm_am"><option>Presencial</option><option>Virtual</option></select><button class="btn p sm" onclick="dmAse()">Enviar solicitud de práctica</button>`:'<div class="empty">No hay monitores cargados.</div>')}</div>
+
+ <div class="card mis ${ok('bus')}"><h3><span class="n">5</span>Usa el buscador inteligente ${chk('bus')}</h3><p class="mut">Tolera tildes, mayúsculas, errores y siglas. Prueba un ejemplo:</p>
+  <div class="row">${ex.map(x=>`<button class="chip" onclick="dmBus('${x}')">${x}</button>`).join('')}</div><div id="dm_sr" style="margin-top:10px">${d.bus?results(d.bus,2):''}</div>${d.bus?`<button class="btn sm" onclick="go('buscar/'+encodeURIComponent('${jsq(d.bus)}'))">Abrir búsqueda completa →</button>`:''}</div>
+
+ <div class="card"><h3>Recorrido rápido</h3><div class="row"><button class="btn sm" onclick="go('cursos')">📘 Cursos y notas</button><button class="btn sm" onclick="go('entregas')">📅 Entregas</button><button class="btn sm" onclick="go('dudas')">❓ Foro</button><button class="btn sm" onclick="go('grupo')">👥 Grupo</button><button class="btn sm" onclick="go('rutas/monitores')">🙋 Monitores</button></div></div>`},
+perfil(){const m=S.me||{};return `<h1>Mi perfil</h1><div class="card"><b>${esc(m.n)}</b> ${m.demo?'<span class="tag w">Datos de demostración</span>':''}<p class="mut">${esc(m.email)} · ${esc(m.prog)} · Rol: ${esc(m.rol)}</p><p class="mut">Cursos: ${(m.cursos||[]).map(esc).join(', ')||'—'}</p><button class="btn sm" onclick="logout()">Cerrar sesión</button></div>`},
+notificaciones(){const l=pend().filter(e=>['urg','venc'].includes(urg(e).k));return `<h1>Notificaciones</h1><div class="card">${l.map(e=>erow(e)).join('')||'<div class="empty">Sin alertas: estás al día 🎉</div>'}</div>`}
 };
 
 function advList(){const A=S.A||[],pro=S.me?.rol!=='Estudiante';if(!A.length)return '';
- return `<h2 class="sec">${pro?'Solicitudes recibidas':'Mis solicitudes de asesoría'}</h2>`+A.map(a=>`<div class="card"><div class="row sp"><b>${esc(a.tema)}</b>${bd(a.st)}</div><div class="mut">${pro?'De: '+esc(a.by):'Con: '+esc(a.pn)} · ${esc(a.mod||'')} ${a.hor?'· '+esc(a.hor):''} · ${esc(a.f)}</div><p style="margin:6px 0">${esc(a.msg)}</p>${pro&&a.st!=='Completada'?`<div class="row">${a.st==='Pendiente'?`<button class="btn p sm" onclick="stA(${a.id},'Aceptada')">Aceptar</button>`:''}<button class="btn sm" onclick="stA(${a.id},'Completada')">Marcar completada</button></div>`:''}</div>`).join('')}
+ return `<h2 class="sec">${pro?'Solicitudes recibidas':'Mis solicitudes de asesoría'}</h2>`+A.map(a=>`<div class="card"><div class="row sp"><b>${esc(a.tema)}</b>${bd(a.st)}</div><div class="mut">${pro?'De: '+esc(a.by):'Con: '+esc(a.pn)} · ${esc(a.mod||'')} ${a.hor?'· '+esc(a.hor):''} · ${esc(a.f)}</div><p style="margin:6px 0">${esc(a.msg)}</p>${pro&&!['Completada','Rechazada'].includes(a.st)?`<div class="row">${a.st==='Pendiente'?`<button class="btn p sm" onclick="stA(${a.id},'Aceptada')">Aceptar</button><button class="btn sm" onclick="stA(${a.id},'Rechazada')">Rechazar</button>`:''}<button class="btn sm" onclick="stA(${a.id},'Completada')">Marcar completada</button></div>`:''}</div>`).join('')}
+
+/* ---------- modo demo: práctica 100% local ---------- */
+const DEMO_N=5,DM_KEY='uao_demo';
+const dmNew=()=>({done:{},ent:[],q:null,as:null,calc:null,bus:''});
+let DM=dmNew();try{DM={...dmNew(),...JSON.parse(localStorage.getItem(DM_KEY)||'{}')}}catch{}
+const dmSave=()=>{try{localStorage.setItem(DM_KEY,JSON.stringify(DM))}catch{}};
+const demoDone=()=>['calc','ent','duda','ase','bus'].filter(k=>DM.done[k]).length;
+function dmMark(k,msg){const was=DM.done[k];DM.done[k]=1;dmSave();if(!was)toast('✓ Misión completada: '+msg)}
+const dmUp=()=>{dmSave();if(curView()==='demo')render(1)};
+function dmFill(s){const n=(S.me?.portal?.notas||[]).find(x=>x.s===s);if(!n||!n.n?.length)return;$('dm_c1').value=n.n[0];$('dm_c2').value=n.n[1]}
+function dmCalc(){const c1=parseFloat(String(val('dm_c1')).replace(',','.')),c2=parseFloat(String(val('dm_c2')).replace(',','.'));
+ if(!(c1>=0&&c1<=5&&c2>=0&&c2<=5))return toast('Escribe notas entre 0.0 y 5.0');DM.calc={c1,c2,r:1};dmMark('calc','calcular tu nota');dmUp()}
+function dmEnt(){const n=val('dm_en');if(!n)return toast('Escribe el nombre de la entrega');DM.ent.push({n,s:val('dm_es'),f:new Date().toLocaleDateString('es-CO',{day:'numeric',month:'short'}),ok:0});toast('Entrega de práctica agregada. Ahora márcala como entregada.');dmUp()}
+function dmEntOk(i){if(DM.ent[i])DM.ent[i].ok=1;dmMark('ent','registrar y entregar');dmUp()}
+function dmQ(){const t=val('dm_qt'),s=val('dm_qs');if(!t)return toast('Escribe tu duda');const m=(S.P||[]).find(p=>p.r==='Monitor'&&p.s===s)||(S.P||[]).find(p=>p.r==='Monitor');
+ DM.q={t,s,a:null,sol:0};dmUp();setTimeout(()=>{if(!DM.q)return;DM.q.a={n:m?.n||'Monitor de ejemplo',x:`¡Buena pregunta! Sobre «${t}»: empieza por repasar el material de ${s} en la pestaña Recursos y, si sigues con dudas, agenda una monitoría conmigo. (Respuesta simulada)`};toast('Un monitor respondió tu duda de práctica');dmUp()},1800)}
+function dmSol(){if(DM.q){DM.q.sol=1;dmMark('duda','resolver una duda')}dmUp()}
+function dmAse(){const id=+val('dm_ap'),m=(S.P||[]).find(p=>p.id===id),tema=val('dm_at');if(!tema)return toast('Escribe el tema');
+ DM.as={pn:m?.n||'Monitor',tema,hor:val('dm_ah'),mod:val('dm_am'),st:'Pendiente'};toast('Solicitud de práctica enviada');dmUp();
+ setTimeout(()=>{if(!DM.as)return;DM.as.st='Aceptada';dmMark('ase','solicitar una asesoría');dmUp()},2200)}
+function dmBus(q){DM.bus=q;dmMark('bus','usar el buscador');dmUp()}
+function dmReset(){DM=dmNew();dmSave();toast('Práctica reiniciada');render(1)}
 
 /* ---------- auth ---------- */
-function showAuth(){$('bot').innerHTML=$('side').innerHTML='';
-const GL='<svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.200 5.3-4.700 7l7.300 5.700c4.300-4 6.800-9.900 6.800-17.200z"/><path fill="#FBBC05" d="M10.5 28.7a14.500 14.500 0 0 1 0-9.400l-7.900-6.100a24 24 0 0 0 0 21.600z"/><path fill="#34A853" d="M24 48c6.500 0 11.900-2.100 15.900-5.800l-7.300-5.700c-2 1.400-4.900 2.300-8.600 2.300-6.300 0-11.600-4.100-13.500-9.800l-7.900 6.100C6.500 42.600 14.600 48 24 48z"/></svg>';
-const gb=CFG.sso?`<button id="gbtn" class="gbtn" onclick="googleLogin()">${GL}<span>Iniciar sesión con Google</span></button><p class="mut" style="margin:12px 0 0">Usa tu cuenta institucional <b>@${esc(CFG.domain||'uao.edu.co')}</b>. Se abrirá una ventana de Google para elegir tu cuenta.</p>`:`<div class="empty" style="padding:12px 0">El ingreso con Google no está configurado en este servidor.</div>`;
-const demo=CFG.demo?`<hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><p class="mut" style="margin:0 0 6px">Modo demostración (clave <code>demo1234</code>):</p><label for="lg_e">Correo</label><input id="lg_e" type="email" value="estudiante@demo.uao" autocomplete="username"><label for="lg_p">Contraseña</label><input id="lg_p" type="password" value="demo1234" autocomplete="current-password" onkeydown="if(event.key=='Enter')login(val('lg_e'),$('lg_p').value)"><button class="btn p" style="width:100%" onclick="login(val('lg_e'),$('lg_p').value)">Ingresar</button><div class="row" style="margin-top:10px"><button class="btn sm" onclick="login('estudiante@demo.uao','demo1234')">Estudiante</button><button class="btn sm" onclick="login('docente@demo.uao','demo1234')">Docente</button><button class="btn sm" onclick="login('monitor@demo.uao','demo1234')">Monitor</button></div>`:'';
-$('m').innerHTML=`<div class="af"><section class="af-l"><img src="/img/logo-uao.png" alt="Universidad Autónoma de Occidente"><div><p class="kick" style="margin-top:0">Tu vida académica · una sola cuenta</p><h1>Bienvenido a <em>UAO Conecta</em></h1><p>Aquí podrás ver tus cursos y entregas de UAO Virtual y Classroom, resolver dudas con tus compañeros, coordinar tu grupo y encontrar apoyo de docentes y monitores.</p><div class="pills"><div class="pill"><b>UAO Virtual</b><span>Cursos, fechas y entregas</span></div><div class="pill"><b>Google Classroom</b><span>Tareas y plazos</span></div><div class="pill"><b>Apoyo académico</b><span>Docentes y monitores</span></div></div></div><q>Aprender es mejor cuando nadie se queda con la duda.</q></section><section class="af-r"><div class="af-card"><h2>Ingresar</h2><p class="s">Usa tu cuenta institucional para continuar.</p>${gb}${demo}</div></section></div>`}
-async function login(email,pw){try{const d=await api('POST','/auth/login',{email,password:pw});TOKEN=d.token;localStorage.setItem('uao_t',TOKEN);await load();FIL={s:'',e:'pend',q:'',p:'',rs:'',rt:''};if(location.hash==='#inicio'||!location.hash){render()}else location.hash='inicio'}catch(e){toast(e.message)}}
-function logout(){TOKEN='';localStorage.removeItem('uao_t');S=base();render()}
+const GLOGO='<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+// Logo: coloca el archivo oficial en public/img/logo-uao.png (si no existe, se muestra el nombre en texto)
+const LOGO_TX='<div class="tx">Universidad<b>AUTÓNOMA</b>de Occidente</div>';
+function showAuth(){document.body.classList.add('out');$('bot').innerHTML=$('side').innerHTML=$('m').innerHTML='';
+ const EX=CFG.ejemplo||{email:'ejemplo@demo.uao',password:'Ejemplo2026'};
+ const ex=`<div class="ex-box" id="ejemplo"><h3>🧪 Cuenta de ejemplo</h3><p>¿Quieres ver cómo funciona? Entra con esta cuenta: todo viene con datos de ejemplo y no se conecta a plataformas reales.</p>
+  <div class="inc"><span class="tag">📘 6 materias</span><span class="tag">📊 Notas por corte</span><span class="tag">📅 Entregas</span><span class="tag">❓ Dudas</span><span class="tag">👩‍🏫 Docentes</span><span class="tag">🙋 Monitores</span><span class="tag">📚 Recursos</span></div>
+  <div class="cred"><span>Correo</span><code>${esc(EX.email)}</code><button class="cp" onclick="cp('${jsq(EX.email)}')">Copiar</button><span>Contraseña</span><code>${esc(EX.password)}</code><button class="cp" onclick="cp('${jsq(EX.password)}')">Copiar</button></div>
+  <button class="btn p" style="width:100%" onclick="login('${jsq(EX.email)}','${jsq(EX.password)}')">Entrar a la cuenta de ejemplo</button></div>`;
+ const demo=CFG.demo?`<div class="or">otras cuentas de demostración por rol</div>
+  <div class="demo-g"><button class="demo-b" onclick="login('estudiante@demo.uao','demo1234')">🎓 Estudiante<small>estudiante@demo.uao</small></button><button class="demo-b" onclick="login('docente@demo.uao','demo1234')">👩‍🏫 Docente<small>docente@demo.uao</small></button><button class="demo-b" onclick="login('monitor@demo.uao','demo1234')">🙋 Monitor<small>monitor@demo.uao</small></button></div>
+  <p class="n" style="font-size:15px;margin-top:12px">Clave de las cuentas por rol: <code>demo1234</code></p>`:'';
+ const form=`<details><summary>Ingresar con correo y contraseña</summary><label for="lg_e">Correo</label><input id="lg_e" type="email" value="${esc(EX.email)}" autocomplete="username"><label for="lg_p">Contraseña</label><input id="lg_p" type="password" value="" placeholder="${esc(EX.password)}" autocomplete="current-password" onkeydown="if(event.key==='Enter')login(val('lg_e'),this.value)"><button class="btn p" style="width:100%" onclick="login(val('lg_e'),$('lg_p').value)">Ingresar</button></details>`;
+ $('auth').innerHTML=`<section class="lg-l">
+  <div class="lg-logo"><img src="/img/logo-uao.png" alt="Universidad Autónoma de Occidente" onerror="this.outerHTML=LOGO_TX"></div>
+  <p class="lg-kick">Tu vida académica · Una sola cuenta</p>
+  <h1>Bienvenido a <span>UAO Conecta</span></h1>
+  <p class="d">Aquí podrás ver tus cursos y entregas de UAO Virtual y Classroom, resolver dudas con tus compañeros, coordinar tu grupo y encontrar apoyo de docentes y monitores.</p>
+  <div class="lg-tiles">
+   <a class="lg-tile" href="${URLS.moodle}" target="_blank" rel="noopener"><b>UAO Virtual</b><span>Cursos, fechas y entregas</span></a>
+   <a class="lg-tile" href="${URLS.classroom}" target="_blank" rel="noopener"><b>Google Classroom</b><span>Tareas y plazos</span></a>
+   <button class="lg-tile" type="button" onclick="toast('Inicia sesión para ver docentes, monitores y recursos de apoyo.');document.querySelector('.g-btn')?.focus()"><b>Apoyo académico</b><span>Docentes y monitores</span></button>
+  </div>
+  <p class="lg-q">Aprender es mejor cuando nadie se queda con la duda.</p>
+ </section>
+ <section class="lg-r"><div class="lg-card">
+  <h2>Ingresar</h2><p class="s">Usa tu cuenta institucional para continuar.</p>${OLD_SRV()?`<p style="background:#fff4e5;border:1px solid #f0b46a;color:#7a4100;border-radius:12px;padding:10px 12px;font-size:14px">⚠️ ${OLD_MSG}</p>`:''}
+  <a class="g-btn" href="/api/auth/google">${GLOGO}Iniciar sesión con Google</a>
+  <p class="n">Usa tu cuenta institucional <b>@${esc(CFG.domain)}</b>. Se abrirá una ventana de Google para elegir tu cuenta.${CFG.sso?'':' <span style="color:#a84300">(El ingreso con Google aún no está configurado en este servidor.)</span>'}</p>
+  ${ex}${demo}${form}
+ </div></section>`}
+function cp(t){(navigator.clipboard?.writeText(t)||Promise.reject()).then(()=>toast('Copiado: '+t)).catch(()=>toast(t))}
+const OLD_SRV=()=>CFG.version!==APP_V;
+const OLD_MSG='El servidor sigue ejecutando una versión anterior de server.js. Detenlo (Ctrl + C) y vuelve a ejecutar «npm start».';
+async function login(email,pw){if(OLD_SRV())toast(OLD_MSG);try{const d=await api('POST','/auth/login',{email,password:pw});setToken(d.token);await load();FIL={s:'',e:'pend',q:'',p:'',rs:'',rt:''};if(location.hash==='#inicio'||!location.hash){render()}else location.hash='inicio'}catch(e){toast(OLD_SRV()?OLD_MSG:e.message)}}
+function setToken(t){TOKEN=t;try{localStorage.setItem('uao_t',t)}catch{}}
+function logout(){TOKEN='';try{localStorage.removeItem('uao_t')}catch{}S=base();render()}
 
 /* ---------- acciones ---------- */
-async function sync(k){const f=S.me?.fuentes||{};
- try{
-  if(k==='classroom'){if(!f.classroom?.conectado){const d=await api('POST','/me/classroom/start');location.href=d.url;return}await api('GET','/me/classroom');toast('Classroom sincronizado')}
-  else{const u=val('m_ical');if(u)await api('POST','/me/ical',{url:u});else if(f.moodle?.conectado)await api('POST','/me/sync');else return toast('Pega el enlace de exportación de tu calendario de UAO Virtual');toast('UAO Virtual sincronizado')}
-  await load();render(1)}catch(e){toast(e.message)}}
-const unlink=k=>act(()=>api('DELETE','/me/'+k),'Desconectado');
-function addNota(){const m=val('nt_m'),c=val('nt_c'),n=val('nt_n');if(!m||!c||!n)return toast('Completa materia, créditos y nota');act(()=>api('PUT','/me/notas',{items:[...(S.me.notas||[]),{m,c,n}]}),'Nota registrada')}
+async function sync(k){
+ if(k==='moodle'){const url=val('m_ical');
+  if(url)return act(()=>api('POST','/me/ical',{url}),'Calendario de UAO Virtual sincronizado');
+  if(S.me.mc)return act(()=>api('POST','/me/sync'),'Cursos de UAO Virtual sincronizados');
+  if(CFG.demo)return act(()=>api('POST','/me/demo/moodle'));
+  return toast('Pega el enlace del calendario de UAO Virtual.')}
+ if(k==='classroom'){
+  if(S.me.gc)return act(()=>api('GET','/me/classroom'),'Google Classroom sincronizado');
+  if(CFG.sso&&!S.me.demo){try{const r=await api('POST','/me/classroom/start');location.href=r.url}catch(e){toast(e.message)}return}
+  if(CFG.demo)return act(()=>api('POST','/me/demo/classroom'));
+  return toast('El ingreso con Google no está configurado en este servidor.')}
+ if(k==='portal'){if(CFG.demo)return act(()=>api('POST','/me/demo/portal'));toast('La consulta automática del Portal no está disponible en este servidor.')}
+}
 const togE=id=>act(()=>api('POST','/deliveries/'+id+'/toggle'));
 function addE(){const n=val('en_n'),due=val('en_d');if(!n)return toast('Escribe el nombre de la entrega');if(!due)return toast('Elige la fecha límite');act(()=>api('POST','/deliveries',{n,s:val('en_s'),due}),'Entrega agregada')}
 function addQuestion(){const t=val('dq_t'),d=val('dq_d');if(!t||!d)return toast('Completa el título y la descripción');act(()=>api('POST','/questions',{t,d,s:val('dq_s'),anon:$('dq_a')?.checked}),'Duda publicada')}
 function answerQ(id){const x=val('ans_x');if(!x)return toast('Escribe tu respuesta');act(()=>api('POST','/questions/'+id+'/answers',{x}),'Respuesta publicada')}
 const voteA=(q,a)=>act(()=>api('POST',`/questions/${q}/answers/${a}/useful`));
-const resolveQ=(id,aid,reopen)=>act(()=>reopen?api('PATCH','/questions/'+id,{st:'En discusión'}):aid<0?api('PATCH','/questions/'+id,{st:'Resuelta'}):api('POST','/questions/'+id+'/solution',{i:aid}));
-const unsolveQ=(id,aid)=>act(()=>api('POST','/questions/'+id+'/solution',{i:aid,off:1}));
+const markQ=(id,st)=>act(()=>api('PATCH','/questions/'+id,{st}),st==='Resuelta'?'Duda marcada como resuelta':'Duda reabierta');
+const solA=(id,i,on)=>act(()=>api('POST','/questions/'+id+'/solution',{i,off:on}),on?'Solución retirada':'Respuesta marcada como solución');
 function addT(){const n=val('tn');if(!n)return toast('Escribe el nombre de la tarea');act(()=>api('POST','/tasks',{n,w:val('tw'),d:val('td')}),'Tarea creada')}
-const nextT=id=>{const t=(S.T||[]).find(x=>x.id==id),o=['Pendiente','En proceso','Completada'];act(()=>api('PATCH','/tasks/'+id,{st:o[(o.indexOf(t?.st)+1)%3]}))};
+function nextT(id){const o=['Pendiente','En proceso','Completada'],t=(S.T||[]).find(x=>x.id===id),st=o[(o.indexOf(t?.st)+1)%o.length];act(()=>api('PATCH','/tasks/'+id,{st}),'Tarea: '+st)}
 function addF(){const n=val('fa');if(!n)return toast('Escribe el acuerdo');act(()=>api('POST','/files',{n}),'Acuerdo registrado')}
 function addGroup(){const n=val('gn');if(!n)return toast('Escribe el nombre de la comunidad');act(()=>api('POST','/groups',{n,s:val('gs')}),'Comunidad creada')}
 const joinG=id=>act(()=>api('POST','/groups/'+id+'/join'));
-function addRes(){const n=val('rn');if(!n)return toast('Falta el título del recurso');act(()=>api('POST','/resources',{n,s:val('rs'),ty:val('rt'),d:val('rd')}),'Recurso subido')}
-async function sendA(id,rol){const tema=val('at');if(!tema||!val('am'))return toast('Escribe el tema y un mensaje');
- try{await api('POST','/advisories',{p:id,tema,msg:val('am'),mod:val('am_mod'),hor:val('ah')});toast('Solicitud enviada');await load();go('rutas/'+(rol==='Monitor'?'monitores':'docentes'))}catch(e){toast(e.message)}}
+async function addRes(){const n=val('rn');if(!n)return toast('Falta el título del recurso');
+ const f=$('rf')?.files?.[0];let data='',fname='';
+ if(f){if(f.size>3e6)return toast('El archivo supera 3 MB');
+  data=await new Promise((ok,ko)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=ko;r.readAsDataURL(f)}).catch(()=>'');fname=f.name}
+ act(()=>api('POST','/resources',{n,s:val('rs'),ty:val('rt'),d:val('rd'),fname,data}),'Recurso subido')}
+async function dl(id){const r=(S.R||[]).find(x=>x.id==id);try{const x=await fetch('/api/resources/'+id+'/download',{headers:{Authorization:'Bearer '+TOKEN}});if(!x.ok)throw 0;
+ const b=await x.blob(),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=r?.file?.name||((r?.n||'recurso')+'.txt');document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}catch{toast('No se pudo descargar el recurso')}}
+async function sendA(id,rol){const tema=val('at'),msg=val('am');if(!tema)return toast('Escribe el tema');if(!msg)return toast('Escribe un mensaje');
+ try{await api('POST','/advisories',{p:id,tema,msg,mod:val('am_mod'),hor:val('ah')});toast('Solicitud enviada');await load();go('rutas/'+(rol==='Monitor'?'monitores':'docentes'))}catch(e){toast(e.message)}}
 const stA=(id,st)=>act(()=>api('PATCH','/advisories/'+id,{st}),'Estado actualizado');
 
-let CFG={sso:false,demo:false,domain:'uao.edu.co'};
-const SSOCH='BroadcastChannel' in window?new BroadcastChannel('uao-sso'):null;
-async function ssoExchange(code){try{const d=await api('POST','/auth/exchange',{code});TOKEN=d.token;localStorage.setItem('uao_t',TOKEN);await load();FIL={s:'',e:'pend',q:'',p:'',rs:'',rt:''};history.replaceState(null,'',location.pathname+'#inicio');render()}catch(e){toast(e.message);showAuth()}}
-if(SSOCH)SSOCH.onmessage=e=>{if(e.data?.sso)ssoExchange(e.data.sso);else if(e.data?.err){toast(e.data.err);authBusy(0)}};
-function authBusy(b){const x=$('gbtn');if(x){x.disabled=!!b;x.style.opacity=b?.6:1}}
-function googleLogin(){authBusy(1);const w=window.open('/api/auth/google?popup=1','uaoSSO','width=480,height=660,left='+Math.max(0,(screen.width-480)/2)+',top=80');if(!w||!SSOCH){location.href='/api/auth/google';return}const t=setInterval(()=>{if(w.closed){clearInterval(t);authBusy(0)}},600)}
+/* ---------- arranque: config, retorno de Google OAuth y sesión ---------- */
 (async()=>{
- const H=new URLSearchParams(location.hash.slice(1)),code=H.get('sso'),err=H.get('ssoerror');
- if((code||err)&&H.get('popup')==='1'&&SSOCH){SSOCH.postMessage(code?{sso:code}:{err});document.body.innerHTML='<p style="font:16px sans-serif;padding:24px">Listo. Ya puedes cerrar esta ventana.</p>';setTimeout(()=>window.close(),250);return}
- try{CFG={...CFG,...await(await fetch('/api/config')).json()}}catch{}
- if(code){history.replaceState(null,'',location.pathname+'#inicio');return ssoExchange(code)}
- if(TOKEN){try{await load()}catch{TOKEN=''}}
- if(err){history.replaceState(null,'',location.pathname+'#inicio');TOKEN?render():showAuth();return toast(err)}
- TOKEN?render():showAuth()})();
+ try{const c=await fetch('/api/config').then(r=>r.json());CFG={...CFG,...c}}catch{}
+ const h=location.hash,sso=h.match(/[#&]sso=([^&]+)/),err=h.match(/[#&]ssoerror=([^&]+)/);
+ if(sso){try{const d=await api('POST','/auth/exchange',{code:sso[1]});setToken(d.token)}catch(e){toast(e.message)}history.replaceState(null,'',location.pathname+'#inicio')}
+ if(err){toast(decodeURIComponent(err[1]));history.replaceState(null,'',location.pathname)}
+ if(/[?&]classroom=error/.test(location.search)){toast('No se pudo conectar Google Classroom.');history.replaceState(null,'',location.pathname+location.hash)}
+ if(TOKEN){try{await load()}catch{TOKEN='';try{localStorage.removeItem('uao_t')}catch{}}}
+ render();
+ // Refresco en segundo plano de plataformas reales ya conectadas
+ if(TOKEN&&(S.me.gc||S.me.mc)){await Promise.all([S.me.gc&&api('GET','/me/classroom').catch(()=>0),S.me.mc&&api('GET','/me/virtual').catch(()=>0)]);try{await load();render(1)}catch{}}
+})();
 </script>
 </body>
 </html>
